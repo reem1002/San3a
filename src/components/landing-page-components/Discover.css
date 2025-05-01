@@ -1,0 +1,90 @@
+:root {
+  --hero-background: #f8f0df;
+  --hero-text-color: #6a3c0a;
+}
+.section-container {
+  margin-bottom: 50px;
+}
+.swip-container-img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 !important;
+  margin: 0 !important;
+  position: relative;
+  height: 400px;
+}
+
+.swip-container-img img {
+  width: 350px;
+  height: auto;
+
+  object-fit: cover;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.upperbox {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+  margin-top: 50px;
+  direction: rtl;
+  color: var(--hero-text-color);
+}
+
+.section-title {
+  font-size: 32px;
+  font-weight: 600;
+  color: var(--hero-text-color);
+}
+
+.option_box {
+  padding: 5px 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  direction: rtl;
+  color: var(--hero-text-color);
+  background-color: var(--hero-background);
+  border-radius: 20px;
+  border: 0;
+  border: none;
+}
+
+.option_box:hover {
+  background-color: #efe2cf;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+/* .swip-img:hover {
+  filter: brightness(0.5);
+  transition: filter 0.3s ease;
+  transform: scale(1.005);
+  transition: transform 0.3s ease;
+} */
+.overlay-text {
+  display: none;
+}
+.swip-container-img:hover .overlay-text {
+  display: block;
+  position: absolute;
+  top: 50%;
+  width: 350px;
+  height: 100%;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: transparent;
+  -webkit-text-stroke: 1px white;
+  text-align: center;
+}
+
+.swip-container-img:hover img {
+  filter: brightness(0.5);
+  transition: filter 0.3s ease;
+  transform: scale(1.02);
+  transition: transform 0.3s ease;
+}

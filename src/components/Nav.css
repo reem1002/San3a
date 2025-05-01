@@ -1,0 +1,82 @@
+body {
+  font-family: "Kufam", sans-serif;
+}
+
+.nav-bar {
+  background-color: #c0e399;
+  display: flex;
+  align-items: center;
+  height: 60px;
+  direction: rtl;
+}
+.nav {
+  justify-content: space-around;
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  height: 50px;
+}
+
+.Navs_links {
+  display: flex;
+  align-items: center;
+}
+.nav-link-img {
+  height: 30px;
+
+  margin: 0 10px;
+}
+
+.search {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* margin-right: 10px; */
+  background-color: white;
+  border-radius: 20px;
+  width: 250px;
+  height: 40px;
+  direction: rtl;
+  border: #000 solid 1px;
+}
+.search input {
+  width: 200px;
+  height: 30px;
+  border: none;
+  padding: 15px;
+  font-size: 12px !important;
+}
+.search input:focus {
+  outline: none;
+}
+.search-icon {
+  height: 20px;
+  width: 20px;
+}
+
+.nav_user {
+  display: flex;
+  align-items: center;
+}
+
+.nav_account {
+  display: flex;
+  align-items: center;
+  /* margin-right: 10px; */
+  position: relative;
+}
+
+.user-icon {
+  height: 38px;
+  width: 38px;
+}
+
+.arrow-icon {
+  background-color: #fff;
+  border-radius: 50%;
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+}

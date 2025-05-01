@@ -1,0 +1,25 @@
+:root {
+  --hero-background: #f8f0df;
+  --hero-text-color: #6a3c0a;
+  --button-background: #c0e399;
+  --lable-background: #f8afb5;
+  --brown-hover: #462707;
+}
+.cards-display {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(300px, 1fr));
+}
+
+.sectionfooter {
+  display: flex;
+  justify-content: left;
+  color: var(--hero-text-color);
+  font-size: 16px;
+}
+
+.sectionfooter:hover {
+  cursor: pointer;
+  color: var(--brown-hover);
+  transform: scale(1.02);
+  transition: color 0.3s ease;
+}
