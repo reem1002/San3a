@@ -69,6 +69,7 @@
 .overlay-text {
   display: none;
 }
+
 .swip-container-img:hover .overlay-text {
   display: block;
   position: absolute;
@@ -80,6 +81,7 @@
   color: transparent;
   -webkit-text-stroke: 1px white;
   text-align: center;
+  cursor: pointer;
 }
 
 .swip-container-img:hover img {

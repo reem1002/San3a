@@ -1,6 +1,16 @@
 import React from "react";
-import "./Wid-card.css"; // Import your CSS file for styling
+import "./Wid-card.css";
+import { useState } from "react";
 const ProductCard = ({ image, label, isFree, name, seller, price, rating }) => {
+    const [favFlag, setFavFlag] = useState(true);
+    const handleFavClick = () => {
+        setFavFlag(!favFlag);
+        // if (favFlag) {
+        //     alert("تمت إضافته إلى المفضلة");
+        // } else {
+        //     alert("تمت إزالته من المفضلة");
+        // }
+    }
     return (
         <div className="card">
             {label && (
@@ -9,6 +19,12 @@ const ProductCard = ({ image, label, isFree, name, seller, price, rating }) => {
                 </span>
             )}
             <div className="maindata">
+                {favFlag ? (
+                    <img src="/imgs/un-fav.png" alt="un-fav" className="fav-icon" onClick={handleFavClick} />
+                ) : (
+                    <img src="/imgs/fav-red.png" alt="fav" className="fav-icon" onClick={handleFavClick} />
+                )}
+
                 <img src={image} alt={name} className="product-image" />
                 <div className="maininfo" >
                     <h3 className="product-title">{name}</h3>
