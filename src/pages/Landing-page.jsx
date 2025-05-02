@@ -6,7 +6,7 @@ import Offers from '../components/landing-page-components/Offers.jsx'
 import GoLearn from '../components/landing-page-components/GoLearn.jsx'
 import KnowSellers from '../components/landing-page-components/San3a-seller.jsx'
 import GoSell from '../components/landing-page-components/GoSell.jsx'
-import Footer from '../components/landing-page-components/Footer.jsx'
+import Footer from '../components/Footer.jsx'
 
 
 export default function LandingPage() {
@@ -19,7 +19,7 @@ export default function LandingPage() {
             <GoLearn />
             <KnowSellers />
             <GoSell />
-            <Footer />
+            
         </div>
     )
 }
