@@ -1,0 +1,89 @@
+:root {
+  --hero-background: #f8f0df;
+  --hero-text-color: #6a3c0a;
+  --button-background: #c0e399;
+  --lable-background: #f8afb5;
+  --brown-hover: #462707;
+}
+.seller-card-container {
+  display: flex;
+  align-items: center;
+  border-radius: 16px;
+  padding: 16px 20px;
+  background-color: var(--hero-background);
+  height: 250px;
+  width: 100%;
+  max-width: 500px;
+  position: relative;
+}
+
+.seller-card-container.pink {
+  direction: ltr;
+  text-align: left;
+}
+
+.seller-card-container.yellow {
+  direction: rtl;
+  text-align: right;
+}
+
+.seller-image {
+  width: 120px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin: 0 16px;
+  flex-shrink: 0;
+}
+
+.seller-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.seller-name {
+  font-weight: bold;
+  font-size: 20px;
+  color: #5c4033;
+  margin-bottom: 8px;
+}
+
+.seller-description {
+  font-size: 16px;
+  color: #5c4033;
+  margin-bottom: 12px;
+}
+
+.seller-separator {
+  border: none;
+  border-top: 1px solid #ccc;
+  margin: 8px 0;
+  width: 100%;
+}
+
+.seller-icons {
+  display: flex;
+  gap: 10px;
+  position: absolute;
+  bottom: 30px;
+  left: 35%;
+}
+
+.seller-icons img {
+  width: 30px;
+  height: 32px;
+}
+
+.seller-card-container.yellow .rating-box {
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  direction: ltr;
+}
+.seller-card-container.pink .rating-box {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+}
