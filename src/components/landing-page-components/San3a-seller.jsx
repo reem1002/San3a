@@ -54,6 +54,7 @@ const KnowSellers = () => {
         <div className="container seller-container">
             <div className="flex items-center justify-between mb-6 upperbox">
                 <h2 className="section-title ">تعرف على بائعي صنعة</h2>
+                <span className="section-subtitle">الجميع</span>
             </div>
             <Slider {...settings} className="slider-container">
                 {sellers.map((seller, index) => (

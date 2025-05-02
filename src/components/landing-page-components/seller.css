@@ -1,7 +1,25 @@
+:root {
+  --hero-background: #f8f0df;
+  --hero-text-color: #6a3c0a;
+  --button-background: #c0e399;
+  --lable-background: #f8afb5;
+  --brown-hover: #462707;
+}
 /* .seller-container {
   margin-bottom: 50px;
 } */
 
 .slider-container {
   margin-left: 50px;
+}
+.section-subtitle {
+  margin-left: 20px;
+}
+
+.section-subtitle:hover {
+  color: var(--brown-hover);
+  cursor: pointer;
+  text-decoration: underline;
+  transform: scale(1.02);
+  transition: color 0.3s ease;
 }

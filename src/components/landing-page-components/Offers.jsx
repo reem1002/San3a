@@ -42,7 +42,7 @@ const products = [
 ];
 export default function Offers() {
     return (
-        <div className=' section-container '>
+        <div className=' section-container  section-container-offers'>
             <div className='offers-section'>
                 <div className="leftside">
                     <div className="offerline">
@@ -79,6 +79,10 @@ export default function Offers() {
                     ))}
 
                 </Swiper>
+
+            </div>
+            <div className="sectionfooter">
+                <span > المزيد &gt;&gt;</span>
             </div>
         </div>
     )
