@@ -13,7 +13,7 @@ body {
 
 ::-webkit-scrollbar-thumb {
   background-color: #c0e399;
-  border-radius: 10px;
+  border-radius: 3px;
   z-index: 10001;
   border: #000 solid 1px;
 }
@@ -22,5 +22,5 @@ body {
   z-index: 10001;
   border: #000 solid 1px;
   background-color: #fff;
-  border-radius: 10px;
+  border-radius: 3px;
 }
