@@ -45,6 +45,7 @@
   cursor: pointer;
   transform: scale(1.02);
   transition: all 0.3s ease-in-out;
+  color: var(--button-hover);
 }
 
 .footer-divider {
@@ -81,7 +82,7 @@
   padding: 12px 29px;
   border-radius: 9999px;
   font-size: 18px;
-  font-weight: 600;
+
   cursor: pointer;
   transition: background-color 0.3s;
   border: #000 solid 1px;

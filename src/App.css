@@ -1,12 +1,25 @@
-
 :root {
   --main_background: #fefbf3;
 }
 body {
   font-family: "Kufam", sans-serif;
   background-color: var(--main_background);
+  padding-top: 60px;
 }
 
 .App {
   text-align: center;
 }
+
+::-webkit-scrollbar-thumb {
+  background-color: #f8afb5;
+  border-radius: 10px;
+  z-index: 10001;
+}
+::-webkit-scrollbar {
+  width: 10px;
+  z-index: 10001;
+}
+/* ::-webkit-scrollbar-thumb:hover {
+  background-color: #a8d88c;
+} */

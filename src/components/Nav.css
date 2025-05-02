@@ -3,11 +3,15 @@ body {
 }
 
 .nav-bar {
+  width: 100%;
+  z-index: 1000;
   background-color: #c0e399;
   display: flex;
   align-items: center;
   height: 60px;
   direction: rtl;
+  position: fixed;
+  top: 0;
 }
 .nav {
   justify-content: space-around;
