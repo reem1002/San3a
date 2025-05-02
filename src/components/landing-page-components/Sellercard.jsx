@@ -17,7 +17,9 @@ export default function SellerCard({ image, name, description, color, rating }) 
             </div>
             <div className="seller-info">
                 <h3 className="seller-name">{name}</h3>
-                <p className="seller-description">{description}</p>
+                <p className="seller-description">
+                    {description.length >= 30 ? `${description.slice(0, 30)}...` : description}
+                </p>
                 <hr className="seller-separator" />
                 <div className={`seller-icons ${color}`}>
                     {

@@ -3,9 +3,9 @@ import './Nav.css'
 export default function Nav
     () {
     return (
-        <div className='nav-bar'>
+        <div className='nav-bar shadow-lg '>
 
-            <div className='nav container '>
+            <div className='nav container  '>
                 <img src="/imgs/logo.png" alt="Logo" className='logo' />
                 <div className='Navs_links'>
                     <a href="#">

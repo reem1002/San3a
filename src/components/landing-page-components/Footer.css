@@ -1,0 +1,110 @@
+:root {
+  --hero-background: #f8f0df;
+  --hero-text-color: #6a3c0a;
+  --button-background: #c0e399;
+  --lable-background: #f8afb5;
+  --brown-hover: #462707;
+}
+.footer {
+  background-color: #fdf2e9;
+
+  direction: rtl;
+  height: 400px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  direction: rtl;
+}
+
+.footer-content {
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 30px;
+  direction: rtl;
+  padding-bottom: 70px;
+}
+
+.footer-title {
+  font-weight: 600;
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.social-icons a {
+  margin-left: 12px;
+  font-size: 30px;
+  color: #000;
+  transition: color 0.3s;
+}
+
+.social-icons a:hover {
+  color: #5eba7d;
+}
+
+.footer-divider {
+  height: 60px;
+  width: 1px;
+  background-color: #aaa;
+}
+
+.footer-subscribe {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 9999px;
+}
+
+.footer-subscribe input {
+  width: 300px;
+  padding: 12px 16px;
+  border: none;
+  border-radius: 9999px;
+  font-size: 14px;
+}
+
+.footer-subscribe button {
+  background-color: #a5d89d;
+  border: none;
+  padding: 12px 29px;
+  border-radius: 9999px;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.footer-subscribe button:hover {
+  background-color: #8ac885;
+}
+
+.footer-bottom {
+  width: 100%;
+  height: 55px;
+  background-color: #d1f3b2;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  font-size: 14px;
+  color: #333;
+  position: absolute;
+  bottom: 0;
+}
+
+.footer-bottom p {
+  margin: 0;
+}
+
+.footer-social {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}

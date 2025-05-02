@@ -18,42 +18,43 @@ html {
   overflow-x: hidden;
 }
 
-.go-learn-section {
-  background-image: url(../../../public/imgs/section-cover1.png);
+.go-sell-section {
+  background-image: url(../../../public/imgs/section-cover2.png);
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: bottom;
-  height: 90vh;
+  background-position: top;
+  height: 100vh;
   width: 100vw;
   display: flex;
+  margin-top: -100px;
 }
 
-.go-learn-section .leftside {
+.go-sell-section .leftside {
   width: 40%;
-  height: 60%;
+  height: 110%;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   gap: 20px;
-  margin-left: 200px;
+  margin-left: 260px;
   text-align: right;
 }
 
-.go-learn-section .learn-line {
+.go-sell-section .sell-line {
   font-size: 38px;
   font-weight: 800;
   color: var(--hero-text-color);
 }
 
-.go-learn-section .learn-btn {
+.go-sell-section .sell-btn {
   font-size: 18px;
   color: var(--hero-text-color);
   align-self: start;
   margin-left: 100px;
 }
 
-.go-learn-section .learn-btn:hover {
+.go-sell-section .sell-btn:hover {
   color: var(--brown-hover);
   cursor: pointer;
   transition: all 0.3s ease-in-out;

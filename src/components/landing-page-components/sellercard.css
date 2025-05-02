@@ -9,12 +9,13 @@
   display: flex;
   align-items: center;
   border-radius: 16px;
-  padding: 16px 20px;
+  padding: 16px;
   background-color: var(--hero-background);
   height: 250px;
-  width: 100%;
+  width: 90%;
   max-width: 500px;
   position: relative;
+  margin: 0;
 }
 
 .seller-card-container.pink {
@@ -50,6 +51,13 @@
   margin-bottom: 8px;
 }
 
+.seller-name:hover {
+  color: var(--brown-hover);
+  cursor: pointer;
+  transform: scale(1.02);
+  transition: color 0.3s ease;
+}
+
 .seller-description {
   font-size: 16px;
   color: #5c4033;
@@ -63,12 +71,19 @@
   width: 100%;
 }
 
-.seller-icons {
+.seller-card-container.pink .seller-icons {
   display: flex;
   gap: 10px;
   position: absolute;
   bottom: 30px;
-  left: 35%;
+  left: 45%;
+}
+.seller-card-container.yellow .seller-icons {
+  display: flex;
+  gap: 10px;
+  position: absolute;
+  bottom: 30px;
+  right: 45%;
 }
 
 .seller-icons img {

@@ -38,7 +38,7 @@ const KnowSellers = () => {
         speed: 1000,
         autoplay: true,
         autoplaySpeed: 2500,
-        slidesToShow: 2,
+        slidesToShow: 3,
         slidesToScroll: 1,
         responsive: [
             {
@@ -55,7 +55,7 @@ const KnowSellers = () => {
             <div className="flex items-center justify-between mb-6 upperbox">
                 <h2 className="section-title ">تعرف على بائعي صنعة</h2>
             </div>
-            <Slider {...settings}>
+            <Slider {...settings} className="slider-container">
                 {sellers.map((seller, index) => (
                     <SellerCard
                         key={index}
