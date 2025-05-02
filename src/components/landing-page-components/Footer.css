@@ -3,8 +3,10 @@
   --hero-text-color: #6a3c0a;
   --button-background: #c0e399;
   --lable-background: #f8afb5;
+  --button-hover: #a8d88c;
   --brown-hover: #462707;
 }
+
 .footer {
   background-color: #fdf2e9;
 
@@ -37,11 +39,12 @@
   margin-left: 12px;
   font-size: 30px;
   color: #000;
-  transition: color 0.3s;
 }
 
 .social-icons a:hover {
-  color: #5eba7d;
+  cursor: pointer;
+  transform: scale(1.02);
+  transition: all 0.3s ease-in-out;
 }
 
 .footer-divider {
@@ -68,8 +71,12 @@
   font-size: 14px;
 }
 
+.footer-subscribe input:focus {
+  outline: none;
+}
+
 .footer-subscribe button {
-  background-color: #a5d89d;
+  background-color: var(--button-background);
   border: none;
   padding: 12px 29px;
   border-radius: 9999px;
@@ -77,10 +84,15 @@
   font-weight: 600;
   cursor: pointer;
   transition: background-color 0.3s;
+  border: #000 solid 1px;
 }
 
 .footer-subscribe button:hover {
-  background-color: #8ac885;
+  background-color: var(--button-hover);
+  cursor: pointer;
+  border: none;
+  transform: scale(1.02);
+  transition: background-color 0.3s ease;
 }
 
 .footer-bottom {

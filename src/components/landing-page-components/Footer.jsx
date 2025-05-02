@@ -15,11 +15,20 @@ const Footer = () => {
                         اعرف أكثر عننا من خلال:
                     </p>
                     <div className="social-icons">
-                        <a href="#"><FaLinkedin /></a>
-                        <a href="#"><FaWhatsapp /></a>
-                        <a href="#"><FaFacebook /></a>
-                        <a href="#"><FaInstagram /></a>
+                        <a href="https://www.linkedin.com/company/san3a/" target="_blank" rel="noopener noreferrer" title="لينكدإن">
+                            <FaLinkedin />
+                        </a>
+                        <a href="https://wa.me/201022391604" target="_blank" rel="noopener noreferrer" title="واتساب">
+                            <FaWhatsapp />
+                        </a>
+                        <a href="https://tr.ee/gJiHKxiomv" target="_blank" rel="noopener noreferrer" title="فيسبوك">
+                            <FaFacebook />
+                        </a>
+                        <a href="https://tr.ee/5BBrhvOGve" target="_blank" rel="noopener noreferrer" title="إنستجرام">
+                            <FaInstagram />
+                        </a>
                     </div>
+
                 </div>
 
 
