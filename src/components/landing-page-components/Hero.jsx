@@ -1,11 +1,11 @@
 import React from 'react'
-import Nav from '../Nav'
+// import Nav from '../Nav'
 import './Hero.css'
 
 export default function Hero() {
     return (
         <div>
-            <Nav />
+
             <div className='hero shadow-sm'>
                 <div className="left_side">
                     <div className="hero_item1">

@@ -4,13 +4,13 @@ body {
 
 .nav-bar {
   width: 100%;
-  z-index: 1000;
+  z-index: 10;
   background-color: #c0e399;
   display: flex;
   align-items: center;
   height: 60px;
   direction: rtl;
-  position: fixed;
+  position: sticky;
   top: 0;
 }
 .nav {
