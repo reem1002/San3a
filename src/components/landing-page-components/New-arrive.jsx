@@ -86,7 +86,7 @@ const NewArrive = () => {
             </div>
 
             <div className="sectionfooter">
-                <spam > &lt;&lt; المزيد</spam>
+                <span > &lt;&lt; المزيد</span>
             </div>
         </div>
     );

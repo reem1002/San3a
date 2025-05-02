@@ -1,0 +1,60 @@
+:root {
+  --hero-background: #f8f0df;
+  --hero-text-color: #6a3c0a;
+  --button-background: #c0e399;
+  --lable-background: #f8afb5;
+  --brown-hover: #462707;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body,
+html {
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+}
+
+.go-learn-section {
+  background-image: url(../../../public/imgs/section-cover1.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 115vh;
+  width: 100vw;
+  display: flex;
+}
+
+.go-learn-section .leftside {
+  width: 40%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+  margin-left: 200px;
+  text-align: right;
+}
+
+.go-learn-section .learn-line {
+  font-size: 40px;
+  font-weight: 800;
+  color: var(--hero-text-color);
+}
+
+.go-learn-section .learn-btn {
+  font-size: 18px;
+  color: var(--hero-text-color);
+  align-self: start;
+  margin-left: 100px;
+}
+
+.go-learn-section .learn-btn:hover {
+  color: var(--brown-hover);
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  transform: scale(1.02);
+}
