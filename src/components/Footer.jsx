@@ -36,7 +36,7 @@ const Footer = () => {
 
             </div>
 
-            <div className="footer-bottom">
+            <div className="footer-bottom shadow-sm">
                 <p>حقوق النشر محفوظة © 2025 - San3a</p>
             </div>
         </footer>
