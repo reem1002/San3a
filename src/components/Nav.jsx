@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 import './Nav.css'
 export default function Nav
     () {
@@ -8,15 +9,17 @@ export default function Nav
             <div className='nav container  '>
                 <img src="/imgs/logo.png" alt="Logo" className='logo' />
                 <div className='Navs_links'>
-                    <a href="#">
-                        <img src="/imgs/home-icon.png" alt="Logo" className='nav-link-img' />
-                    </a>
-                    <a href="#">
-                        <img src="/imgs/shop icon.png" alt="Logo" className='nav-link-img' />
-                    </a>
-                    <a href="#">
-                        <img src="/imgs/learn-icon.png" alt="Logo" className='nav-link-img' />
-                    </a>
+                    <Link to="/" className='nav-link'>
+                        <img src="/imgs/home-icon.png" alt="Home" className='nav-link-img' />
+                    </Link>
+
+                    <Link to="/shop" className='nav-link'>
+                        <img src="/imgs/shop icon.png" alt="Shop" className='nav-link-img' />
+                    </Link>
+
+                    <Link to="/learn" className='nav-link'>
+                        <img src="/imgs/learn-icon.png" alt="Learn" className='nav-link-img' />
+                    </Link>
                 </div>
                 <div className='search'>
                     <img src="/imgs/search.png" alt="Logo" className='search-icon' />

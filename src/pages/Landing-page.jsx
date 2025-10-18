@@ -16,7 +16,7 @@ export default function LandingPage() {
             <DiscoverSection />
             <NewArrive />
             <Offers />
-            <GoLearn />
+            {/* <GoLearn /> */}
             <KnowSellers />
             <GoSell />
             
