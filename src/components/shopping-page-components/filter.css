@@ -123,3 +123,8 @@ align-items: center;
   align-items: self-start;
   gap: 10px;
 }
+
+.reload-icon:hover{
+  transform: scale(1.1);
+  cursor: pointer;
+}

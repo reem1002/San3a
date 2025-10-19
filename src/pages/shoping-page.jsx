@@ -64,7 +64,7 @@ const ShopingPage = () => {
 
     return (
         <div className="shoping-page-container">
-            <FiltersSidebar />
+            {/* <FiltersSidebar /> */}
             <ShopProducts />
         </div>
     );

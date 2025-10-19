@@ -1,94 +1,79 @@
-import React from "react";
+import React, { useState } from "react";
+import { useSelector } from "react-redux";
 import "./shop.css";
-import { FaStar, FaShoppingCart, FaHeart } from "react-icons/fa";
-import ProductCard from "../landing-page-components/Wid-Card"
-import ResultsHeader from "./Result-header"
-
-const products = [
-    {
-        image: "/imgs/place.png",
-        label: "خصم",
-        isFree: false,
-        name: "شمعة عطرية بالفانيليا",
-        seller: "عطور نور",
-        price: 60,
-        rating: 4.6,
-    },
-    {
-        image: "/imgs/place.png",
-        label: "",
-        isFree: false,
-        name: "سوار كروشيه يدوي",
-        seller: "هاند كرافتس",
-        price: 45,
-        rating: 4.4,
-    },
-    {
-        image: "/imgs/place.png",
-        label: "خصم",
-        isFree: false,
-        name: "صابون زيت الزيتون الطبيعي",
-        seller: "عناية طبيعية",
-        price: 30,
-        rating: 4.2,
-    },
-    {
-        image: "/imgs/place.png",
-        label: "",
-        isFree: false,
-        name: "ميدالية مفاتيح مطرزة",
-        seller: "خيوط وألوان",
-        price: 25,
-        rating: 4.1,
-    },
-    {
-        image: "/imgs/place.png",
-        label: "شحن مجاني",
-        isFree: true,
-        name: "دفتر ملاحظات يدوي",
-        seller: "صُنع بحب",
-        price: 70,
-        rating: 4.8,
-    },
-    {
-        image: "/imgs/place.png",
-        label: "",
-        isFree: false,
-        name: "قلادة حجر طبيعي",
-        seller: "إبداع حجري",
-        price: 55,
-        rating: 4.5,
-    },
-];
+import ProductCard from "../landing-page-components/Wid-Card";
+import ResultsHeader from "./Result-header";
+import PaginationComponent from "./Pagination";
+import FiltersSidebar from "./Filter";
 
 const ShopProducts = () => {
-    const handleAddToCart = (name) => {
-        alert(`تمت إضافة "${name}" إلى عربيتك 🛒`);
-    };
+    const [currentPage, setCurrentPage] = useState(1);
+    const [isSidebarVisible, setIsSidebarVisible] = useState(true);
+    const { filteredProducts, allProducts, filters } = useSelector(
+        (state) => state.products
+    );
+
+  
+    const isFiltering =
+        Object.values(filters).some(
+            (val) => val !== "" && val !== false && val !== "كل الحرف"
+        );
+
+   
+    let products;
+    if (filteredProducts.length > 0) {
+        products = filteredProducts;
+    } else if (filteredProducts.length === 0 && isFiltering) {
+        products = []; 
+    } else {
+        products = allProducts; 
+    }
+
+    const productsPerPage = 10;
+    const startIndex = (currentPage - 1) * productsPerPage;
+    const endIndex = startIndex + productsPerPage;
+    const currentProducts = products.slice(startIndex, endIndex);
+    const totalPages = Math.ceil(products.length / productsPerPage);
 
     return (
         <div className="shop-container">
-            <ResultsHeader />
-            <div className="products-grid">
-                {products.map((product, index) => (
-                    <div className="cards-display">
-                        {products.map((product, index) => (
-                            <ProductCard
-                                key={index}
-                                image={product.image}
-                                label={product.label}
-                                isFree={product.isFree}
-                                name={product.name}
-                                seller={product.seller}
+            <ResultsHeader
+                totalResults={products.length}
+                isSidebarVisible={isSidebarVisible}
+                setIsSidebarVisible={setIsSidebarVisible}
+            />
 
-                                price={product.price}
-                                rating={product.rating}
+            <div className="shop-content">
+                {isSidebarVisible && <FiltersSidebar />}
 
+                <div
+                    className={`cards-display ${isSidebarVisible ? "with-sidebar" : "full-width"
+                        }`}
+                >
+                    {products.length > 0 ? (
+                        currentProducts.map((product, index) => (
+                            <ProductCard key={index} {...product} />
+                        ))
+                    ) : (
+                        <div className="no-results-message">
+                            <img
+                                src="/imgs/empty.png"
+                                alt="No results"
+                                className="no-results-img"
                             />
-                        ))}
-                    </div>
-                ))}
+                            <p>لا توجد نتائج مطابقة لبحثك</p>
+                        </div>
+                    )}
+                </div>
             </div>
+
+            {products.length > 0 && (
+                <PaginationComponent
+                    currentPage={currentPage}
+                    totalPages={totalPages}
+                    onPageChange={setCurrentPage}
+                />
+            )}
         </div>
     );
 };

@@ -20,7 +20,8 @@
   
 }
 
-.results-header span {
+.results-header .heading {
+  display: flex;
   font-weight: 650 !important;
   color: var(--hero-text-color);
 }
@@ -31,4 +32,11 @@
   border-radius: 8px;
   padding: 5px 15px;
   font-size: 14px;
+}
+
+.totalResults{
+  background-color: #fff;
+ width: 30px;
+ margin: 0 5px;
+  border-radius: 20px;
 }

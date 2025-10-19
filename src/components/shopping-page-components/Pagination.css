@@ -1,0 +1,63 @@
+:root {
+  --hero-background: #f8f0df;
+  --hero-text-color: #6a3c0a;
+  --button-background: #c0e399;
+  --brown-hover: #462707;
+}
+
+.pagination-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: 20px;
+  direction: rtl;
+  flex-wrap: wrap;
+}
+
+.nav-btn {
+  background-color: var(--button-background);
+  color: var(--hero-text-color);
+  border: 1px solid var(--hero-text-color);
+  border-radius: 8px;
+  padding: 6px 12px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.nav-btn:hover:not(:disabled) {
+  background-color: var(--hero-text-color);
+  color: #fff;
+}
+
+.nav-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.pages {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.page-btn {
+  background-color: var(--hero-background);
+  border: 1px solid var(--hero-text-color);
+  color: var(--hero-text-color);
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.page-btn:hover {
+  background-color: var(--button-background);
+}
+
+.page-btn.active {
+  background-color: var(--hero-text-color);
+  color: #fff;
+}

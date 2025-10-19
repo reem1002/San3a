@@ -4,9 +4,52 @@
     justify-content: space-evenly;
 }
 
-.shoping-page-container .cards-display {
+/* .shoping-page-container .cards-display {
    margin: 0 !important;
   display: grid;
   grid-template-columns: repeat(2, minmax(300px, 1fr));
   gap: 15px;
+} */
+
+.shoping-page-container .shop-content {
+  display: flex;
+  gap: 1rem;
+
+  
+}
+
+/* لما الفلاتر ظاهرة */
+.shoping-page-container .shop-content .cards-display.with-sidebar {
+  display: grid !important;
+  grid-template-columns: repeat(2, 1fr) !important;
+  gap: 1.5rem;
+ 
+  flex: 1;
+}
+
+/* لما الفلاتر مختفية */
+.shoping-page-container .cards-display.full-width {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  flex: 1;
+}
+.shoping-page-container .shop-content .cards-display.with-sidebar .card{
+   max-height: 280px;
+}
+
+/* أيقونة الفلاتر */
+.shoping-page-container .filter-toggle {
+  margin-left: 10px;
+  cursor: pointer;
+  color: #555;
+  transition: all 0.3s ease;
+}
+
+.shoping-page-container .filter-toggle:hover{
+  transform: scale(1.1);
+}
+
+.shoping-page-container .filter-toggle.active {
+  color: var(--hero-text-color);
 }

@@ -60,6 +60,11 @@ body {
   width: 20px;
 }
 
+.search-icon:hover{
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
 .nav_user {
   display: flex;
   align-items: center;
