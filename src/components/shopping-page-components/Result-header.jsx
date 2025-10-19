@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setSortType, applyFilters } from "../../redux/productsSlice";
-import { FaFilter } from "react-icons/fa"; 
+import { FaFilter } from "react-icons/fa";
 import "./result.css";
 
 const ResultsHeader = ({ totalResults, isSidebarVisible, setIsSidebarVisible }) => {
@@ -14,6 +14,7 @@ const ResultsHeader = ({ totalResults, isSidebarVisible, setIsSidebarVisible }) 
 
     useEffect(() => {
         dispatch(applyFilters());
+
     }, [sortType, dispatch]);
 
     return (

@@ -5,12 +5,13 @@
   --lable-background: #f8afb5;
   --brown-hover: #462707;
 }
-/* .seller-container {
-  margin-bottom: 50px;
-} */
+.seller-container {
+  margin-top: 80px;
+}
 
 .slider-container {
   margin-left: 50px;
+  
 }
 .section-subtitle {
   margin-left: 20px;

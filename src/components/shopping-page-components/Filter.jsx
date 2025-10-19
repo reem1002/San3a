@@ -37,7 +37,6 @@ const FiltersSidebar = () => {
                 <span>فلاتر البحث</span>
             </div>
             <div className="divider"></div>
-
             {/* الحرف */}
             <div className="filter-group1">
                 <label className="filter-label">الحرف</label>
@@ -48,12 +47,30 @@ const FiltersSidebar = () => {
                     onChange={handleFilterChange}
                 >
                     <option>كل الحرف</option>
-                    <option>عطور نور</option>
-                    <option>هاند كرافتس</option>
-                    <option>عناية طبيعية</option>
-                    <option>خيوط وألوان</option>
-                    <option>صُنع بحب</option>
-                    <option>إبداع حجري</option>
+                    <option>شموع</option>
+                    <option>كروشيه</option>
+                    <option>صابون طبيعي</option>
+                    <option>تطريز</option>
+                    <option>خشب</option>
+                    <option>حجارة</option>
+                </select>
+            </div>
+
+
+            <div className="filter-group1">
+                <label className="filter-label">الأقسام</label>
+                <select
+                    className="filter-select"
+                    name="section"
+                    value={filters.section}
+                    onChange={handleFilterChange}
+                >
+                    <option>كل الأقسام</option>
+                    <option>الديكور</option>
+                    <option>الإكسسوارات</option>
+                    <option>العناية</option>
+                    <option>الهدايا</option>
+                    <option>القرطاسية</option>
                 </select>
             </div>
 

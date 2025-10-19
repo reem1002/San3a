@@ -20,18 +20,19 @@ export default function Nav() {
             dispatch(setSearchTerm(searchValue));
             dispatch(applyFilters());
             if (location.pathname !== "/shop") navigate("/shop");
+
         }
     };
 
-    // ⏱️ البحث بعد ثانية من التوقف عن الكتابة
+
     useEffect(() => {
         const delayDebounce = setTimeout(() => {
             if (searchValue.trim() === "") {
-                // لو المستخدم مسح الكلام → رجّع الديفولت
+
                 dispatch(setSearchTerm(""));
                 dispatch(applyFilters());
             } else {
-                // لو كتب أي حاجة → فلتر طبيعي
+
                 dispatch(setSearchTerm(searchValue));
                 dispatch(applyFilters());
                 if (location.pathname !== "/shop") navigate("/shop");

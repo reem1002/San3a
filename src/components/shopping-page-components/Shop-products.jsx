@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
+
 import "./shop.css";
 import ProductCard from "../landing-page-components/Wid-Card";
 import ResultsHeader from "./Result-header";
@@ -13,20 +14,22 @@ const ShopProducts = () => {
         (state) => state.products
     );
 
-  
+    useEffect(() => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    }, []);
     const isFiltering =
         Object.values(filters).some(
             (val) => val !== "" && val !== false && val !== "كل الحرف"
         );
 
-   
+
     let products;
     if (filteredProducts.length > 0) {
         products = filteredProducts;
     } else if (filteredProducts.length === 0 && isFiltering) {
-        products = []; 
+        products = [];
     } else {
-        products = allProducts; 
+        products = allProducts;
     }
 
     const productsPerPage = 10;

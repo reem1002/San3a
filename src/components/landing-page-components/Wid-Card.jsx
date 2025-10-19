@@ -1,51 +1,122 @@
-import React from "react";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./Wid-card.css";
-import { useState } from "react";
-const ProductCard = ({ image, label, isFree, name, seller, price, rating }) => {
-    const [favFlag, setFavFlag] = useState(true);
-    const handleFavClick = () => {
+
+const ProductCard = ({
+    id,
+    image,
+    name,
+    seller,
+    price,
+    rating,
+    section,
+    craft,
+    discount,
+    shipping,
+    label,
+}) => {
+    const [favFlag, setFavFlag] = useState(false);
+    const navigate = useNavigate();
+
+    // 🔹 السعر بعد الخصم
+    const finalPrice =
+        discount && discount > 0 ? price - (price * discount) / 100 : price;
+
+    // 🔹 الانتقال لصفحة المنتج
+    const goToProduct = () => {
+        navigate(`/product/${id}`);
+    };
+
+    // 🔹 المفضلة
+    const handleFavClick = (e) => {
+        e.stopPropagation();
         setFavFlag(!favFlag);
-        // if (favFlag) {
-        //     alert("تمت إضافته إلى المفضلة");
-        // } else {
-        //     alert("تمت إزالته من المفضلة");
-        // }
-    }
+    };
+
+    // 🔹 إضافة للعربة (تقدرِ تربطيه بريدوكس لاحقًا)
+    const handleAddToCart = (e) => {
+        e.stopPropagation();
+        console.log(`✅ تمت إضافة ${name} إلى العربة`);
+    };
+
     return (
         <div className="card">
-            {label && (
-                <span className="product-label">
-                    {label}
+            {/* الشارة */}
+            {(discount > 0 || shipping === "مجاني" || label) && (
+                <span
+                    className={`product-label ${discount > 0
+                        ? "discount"
+                        : shipping === "مجاني"
+                            ? "free"
+                            : "custom"
+                        }`}
+                >
+                    {discount > 0
+                        ? `خصم ${discount}%`
+                        : shipping === "مجاني"
+                            ? "شحن مجاني"
+                            : label}
                 </span>
             )}
-            <div className="maindata">
-                {favFlag ? (
-                    <img src="/imgs/un-fav.png" alt="un-fav" className="fav-icon" onClick={handleFavClick} />
-                ) : (
-                    <img src="/imgs/fav-red.png" alt="fav" className="fav-icon" onClick={handleFavClick} />
-                )}
 
-                <img src={image} alt={name} className="product-image" />
-                <div className="maininfo" >
-                    <h3 className="product-title">{name}</h3>
+            <div className="maindata">
+                {/* أيقونة المفضلة */}
+                <img
+                    src={favFlag ? "/imgs/fav-red.png" : "/imgs/un-fav.png"}
+                    alt="fav"
+                    className="fav-icon"
+                    onClick={handleFavClick}
+                />
+
+                {/* صورة المنتج → تفتح صفحة التفاصيل */}
+                <img
+                    src={image}
+                    alt={name}
+                    className="product-image"
+                    onClick={goToProduct}
+                    style={{ cursor: "pointer" }}
+                />
+
+                {/* التفاصيل */}
+                <div className="maininfo">
+                    <h3
+                        className="product-title"
+                        onClick={goToProduct}
+                        style={{ cursor: "pointer" }}
+                    >
+                        {name}
+                    </h3>
                     <p className="product-seller">{seller}</p>
+
+                    <div className="product-meta">
+                        <p>
+                            <strong>الحرفة:</strong> {craft}
+                        </p>
+                    </div>
                 </div>
             </div>
+
+            {/* السعر والتقييم */}
             <div className="sub-info">
                 <div className="rating-box">
                     <span>{rating}</span>
-                    <span>
-                        <img src="/imgs/star.png" alt="star" className="w-4 h-4" />
-                    </span>
+                    <img src="/imgs/star.png" alt="star" className="w-4 h-4" />
                 </div>
                 <div className="price-box">
-                    <p className="product-price">{price} جنيه</p>
+                    {discount > 0 ? (
+                        <>
+                            <p className="product-price discounted">{price} ج.م</p>
+                            <p className="product-price final">{finalPrice} ج.م</p>
+                        </>
+                    ) : (
+                        <p className="product-price">{price} ج.م</p>
+                    )}
                 </div>
             </div>
-            <button className="buy-button">
-                <span>
-                    <img src="/imgs/cart.png" alt="cart" className="w-4 h-4" />
-                </span>
+
+            {/* زر العربة */}
+            <button className="buy-button" onClick={handleAddToCart}>
+                <img src="/imgs/cart.png" alt="cart" className="w-4 h-4" />
                 <span>أضف لعربتك</span>
             </button>
         </div>

@@ -1,56 +1,49 @@
-import React from 'react'
-import './offer.css'
-import ProductCard from './Wid-Card'
+import React from "react";
+import "./offer.css";
+import ProductCard from "./Wid-Card";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
-
-const products = [
-    {
-        image: "/imgs/place.png",
-        label: "-20%",
-        name: "شمعة عطرية بالفانيليا",
-        seller: "عطور نور",
-        price: 60,
-        rating: 4.6,
-    },
-    {
-        image: "/imgs/place.png",
-        label: "-50%",
-        name: "سوار كروشيه يدوي",
-        seller: "هاند كرافتس",
-        price: 45,
-        rating: 4.4,
-    },
-    {
-        image: "/imgs/place.png",
-        label: "-20%",
-        name: "صابون زيت الزيتون الطبيعي",
-        seller: "عناية طبيعية",
-        price: 30,
-        rating: 4.2,
-    },
-    {
-        image: "/imgs/place.png",
-        label: "-30%",
-        name: "ميدالية مفاتيح مطرزة",
-        seller: "خيوط وألوان",
-        price: 25,
-        rating: 4.1,
-    },
-
-];
 export default function Offers() {
+    const allProducts = useSelector((state) => state.products.allProducts);
+
+    // فلترة المنتجات اللي فيها خصم فقط
+    const discountedProducts = allProducts.filter(
+        (product) => product.discount && product.discount > 0
+    );
+
+    const navigate = useNavigate();
+
+    // الانتقال لصفحة المنتج
+    const handleCardClick = (id) => {
+        if (!id) return;
+        navigate(`/product/${id}`);
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+        });
+    };
+
+    // الانتقال لصفحة المتجر
+    const handleToShop = () => {
+        navigate("/shop");
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+        });
+    };
+
     return (
-        <div className=' section-container  section-container-offers'>
-            <div className='offers-section'>
+        <div className="section-container section-container-offers">
+            <div className="offers-section">
                 <div className="leftside">
                     <div className="offerline">
-                        <h4 className="line">
-                            عروض متتفوتش
-                        </h4>
+                        <h4 className="line">عروض متتفوتش</h4>
                     </div>
                 </div>
+
                 <Swiper
                     modules={[Navigation]}
                     spaceBetween={0}
@@ -63,28 +56,34 @@ export default function Offers() {
                         },
                     }}
                 >
-
-                    {products.map((product, index) => (
+                    {discountedProducts.map((product, index) => (
                         <SwiperSlide key={index}>
-                            <ProductCard
-                                image={product.image}
-                                label={product.label}
-                                isFree={product.isFree}
-                                name={product.name}
-                                seller={product.seller}
-                                price={product.price}
-                                rating={product.rating}
-                            />
+                            <div
+                                onClick={() => handleCardClick(product.id)}
+                                style={{ cursor: "pointer" }}
+                            >
+                                <ProductCard
+                                    image={product.image}
+                                    label={`-${product.discount}%`}
+                                    isFree={product.isFree}
+                                    name={product.name}
+                                    seller={product.seller}
+                                    craft={product.craft}
+                                    price={product.price}
+                                    rating={product.rating}
+                                    discount={product.discount}
+                                />
+                            </div>
                         </SwiperSlide>
                     ))}
-
                 </Swiper>
-
             </div>
+
             <div className="sectionfooter">
-                <span > المزيد &gt;&gt;</span>
+                <span className="shop-link" onClick={handleToShop}>
+                    المزيد &gt;&gt;
+                </span>
             </div>
         </div>
-    )
+    );
 }
-
