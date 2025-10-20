@@ -30,7 +30,56 @@ const KnowSellers = () => {
             description: "أعمال فنية مميزة باستخدام الخيوط والألوان",
             rating: 4.8,
         },
+        {
+            image: "/imgs/place1.png",
+            name: "صُنع بحب",
+            description: "منتجات مصنوعة يدويًا بكل حب وإتقان",
+            rating: 4.6,
+        },
+        {
+            image: "/imgs/place.png",
+            name: "إبداع حجري",
+            description: "تصاميم مميزة باستخدام الحجارة الطبيعية",
+            rating: 4.5,
+        },
+        {
+            image: "/imgs/place2.png",
+            name: "لمسة فنية",
+            description: "ديكورات يدوية بلمسات فنية رائعة",
+            rating: 4.7,
+        },
+        {
+            image: "/imgs/place1.png",
+            name: "فن الخيوط",
+            description: "فن بصري مبدع باستخدام خيوط الصوف",
+            rating: 4.9,
+        },
+        {
+            image: "/imgs/place.png",
+            name: "كروشيه ستايل",
+            description: "إكسسوارات وأزياء كروشيه عصرية",
+            rating: 4.5,
+        },
+        {
+            image: "/imgs/place2.png",
+            name: "بيور ناتشرال",
+            description: "منتجات عناية طبيعية وآمنة تمامًا",
+            rating: 4.3,
+        },
+        {
+            image: "/imgs/place1.png",
+            name: "إبداع خشبي",
+            description: "منتجات خشبية فريدة بحرفية عالية",
+            rating: 4.8,
+        },
+        {
+            image: "/imgs/place.png",
+            name: "لمسات شرقية",
+            description: "منتجات يدوية مستوحاة من الطابع الشرقي",
+            rating: 4.5,
+        },
     ];
+
 
     const settings = {
         dots: true,

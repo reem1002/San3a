@@ -24,27 +24,23 @@ const ProductCard = ({
     const dispatch = useDispatch();
 
 
-
-    // ✅ الحصول على المفضلة من Redux
     const favorites = useSelector((state) => state.favorites.favorites);
     const isFavorite = favorites.some((item) => item.id === id);
 
-    // 🔹 السعر بعد الخصم
     const finalPrice =
         discount && discount > 0 ? price - (price * discount) / 100 : price;
 
-    // 🔹 الانتقال لصفحة المنتج
     const goToProduct = () => {
         navigate(`/product/${id}`);
     };
 
-    // 🔹 التعامل مع المفضلة
+  
     const handleFavClick = (e) => {
         e.stopPropagation();
         dispatch(toggleFavorite({ id, name, image, price, seller, craft }));
     };
 
-    // 🔹 إضافة للعربة
+
     const handleAddToCart = (e) => {
         e.stopPropagation();
         if (stock <= 0) return;
@@ -86,7 +82,6 @@ const ProductCard = ({
             )}
 
             <div className="maindata">
-                {/* ✅ أيقونة المفضلة بنفس التصميم */}
                 <button
                     className={`fav-btn ${isFavorite ? "active" : ""}`}
                     onClick={handleFavClick}

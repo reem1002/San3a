@@ -1,13 +1,12 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { removeFromCart, updateQuantity, clearCart } from "../redux/cartSlice";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./cart.css";
-import { FaTrashAlt } from "react-icons/fa"; 
+import { FaTrashAlt } from "react-icons/fa";
 
 export default function CartPage() {
     const dispatch = useDispatch();
-    const navigate = useNavigate();
     const cartItems = useSelector((state) => state.cart.cartItems);
 
     const handleQuantityChange = (id, value) => {
@@ -21,10 +20,33 @@ export default function CartPage() {
         dispatch(removeFromCart(id));
     };
 
+    const shippingCost = 60;
+
     const total = cartItems.reduce(
         (acc, item) => acc + item.price * item.quantity,
         0
     );
+
+    const totalWithShipping = total + shippingCost;
+
+    const handleCheckout = () => {
+        let message = "*طلب جديد من منصة صنعة:*\n\n";
+
+        cartItems.forEach((item, index) => {
+            message += `*${index + 1}. ${item.name}* (كود المنتج: ${item.id})\n`;
+            message += `الكمية: ${item.quantity}\n`;
+            message += `السعر: ${item.price} × ${item.quantity} = *${item.price * item.quantity} ج.م*\n\n`;
+        });
+
+        message += `*مصاريف الشحن:* ${shippingCost} ج.م\n`;
+        message += `*الإجمالي الكلي:* ${totalWithShipping} ج.م\n\n`;
+        message += "*من فضلك قم بكتابة بيانات التوصيل (الاسم - العنوان - رقم الموبايل).*";
+
+        const encodedMessage = encodeURIComponent(message);
+        const whatsappNumber = "201004204036";
+
+        window.open(`https://wa.me/${whatsappNumber}?text=${encodedMessage}`, "_blank");
+    };
 
     if (cartItems.length === 0) {
         return (
@@ -84,20 +106,25 @@ export default function CartPage() {
                         </tr>
                     ))}
                 </tbody>
-
             </table>
 
             <div className="cart-footer">
                 <p>
-                    الإجمالي الكلي: <strong>{total} ج.م</strong>
+                    الإجمالي الكلي: <strong>{totalWithShipping} ج.م</strong> {" "}
+                    (يشمل 60 ج.م مصاريف الشحن)
                 </p>
                 <div className="cart-buttons">
-                    <button
-                        className="checkout-btn"
-                        onClick={() => navigate("/checkout")}
-                    >
-                        متابعة الدفع
-                    </button>
+                    <div className="pay-proceed">
+                        <button
+                            className="checkout-btn"
+                            onClick={handleCheckout}
+                        >
+                            متابعة الدفع
+                        </button>
+                        <p className="whatsapp-info">
+                            سيتم تحويلك إلى واتساب لإرسال طلبك، وستظهر الرسالة بشكل منسق.
+                        </p>
+                    </div>
                     <button
                         className="clear-btn"
                         onClick={() => dispatch(clearCart())}

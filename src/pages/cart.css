@@ -83,14 +83,21 @@
 }
 
 .cart-buttons {
-    
     display: flex;
     justify-content: center;
     gap: 1rem;
     margin-top: 3rem;
 }
 
+.pay-proceed{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
 .checkout-btn {
+    width: 100%;
+    height: 47px;
     border: 1px solid #000;
     background: var(--button-background);
     padding: 10px 25px;
@@ -104,6 +111,8 @@
 }
 
 .clear-btn {
+    width: 50%;
+    height: 47px;
     border: 1px solid #000;
     background: var(--lable-background);
     padding: 10px 25px;
@@ -138,4 +147,12 @@
 }
 .product-link:hover {
     text-decoration: underline;
+}
+.whatsapp-info {
+    font-size: 0.85rem;
+    color: #666;
+    margin-top: 6px;
+    margin-bottom: 12px;
+    text-align: center;
+    font-style: italic;
 }

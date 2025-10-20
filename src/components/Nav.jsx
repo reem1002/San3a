@@ -88,9 +88,9 @@ export default function Nav() {
                     <Link to="/shop" className="nav-link">
                         <img src="/imgs/shop icon.png" alt="Shop" className="nav-link-img" />
                     </Link>
-                    <Link to="/learn" className="nav-link">
+                    {/* <Link to="/learn" className="nav-link">
                         <img src="/imgs/learn-icon.png" alt="Learn" className="nav-link-img" />
-                    </Link>
+                    </Link> */}
                 </div>
 
                 <div className="search">
@@ -109,7 +109,7 @@ export default function Nav() {
                 </div>
 
                 <div className="nav_user">
-                    <img src="/imgs/notification.png" alt="Notifications" className="nav-link-img" />
+                    {/* <img src="/imgs/notification.png" alt="Notifications" className="nav-link-img" /> */}
 
                     {/* ❤️ المفضلة */}
                     <div ref={favRef} className="fav-icon-wrapper">
@@ -217,10 +217,10 @@ export default function Nav() {
                     </div>
                 </div>
 
-                <div className="nav_account">
+                {/* <div className="nav_account">
                     <img src="/imgs/account.png" alt="User" className="user-icon" />
                     <img src="/imgs/down-line.png" alt="Dropdown" className="arrow-icon" />
-                </div>
+                </div> */}
             </div>
         </div>
     );
