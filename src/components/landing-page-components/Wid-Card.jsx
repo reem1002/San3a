@@ -1,6 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { toggleFavorite } from "../../redux/favoritesSlice";
 import "./Wid-card.css";
+import { addToCart } from "../../redux/cartSlice";
+
 
 const ProductCard = ({
     id,
@@ -14,9 +18,16 @@ const ProductCard = ({
     discount,
     shipping,
     label,
+    stock = 0,
 }) => {
-    const [favFlag, setFavFlag] = useState(false);
     const navigate = useNavigate();
+    const dispatch = useDispatch();
+
+
+
+    // ✅ الحصول على المفضلة من Redux
+    const favorites = useSelector((state) => state.favorites.favorites);
+    const isFavorite = favorites.some((item) => item.id === id);
 
     // 🔹 السعر بعد الخصم
     const finalPrice =
@@ -27,55 +38,82 @@ const ProductCard = ({
         navigate(`/product/${id}`);
     };
 
-    // 🔹 المفضلة
+    // 🔹 التعامل مع المفضلة
     const handleFavClick = (e) => {
         e.stopPropagation();
-        setFavFlag(!favFlag);
+        dispatch(toggleFavorite({ id, name, image, price, seller, craft }));
     };
 
-    // 🔹 إضافة للعربة (تقدرِ تربطيه بريدوكس لاحقًا)
+    // 🔹 إضافة للعربة
     const handleAddToCart = (e) => {
         e.stopPropagation();
-        console.log(`✅ تمت إضافة ${name} إلى العربة`);
+        if (stock <= 0) return;
+        dispatch(
+            addToCart({
+                id,
+                name,
+                image,
+                price: finalPrice,
+                seller,
+                craft,
+                stock,
+            })
+        );
     };
 
     return (
-        <div className="card">
+        <div className={`card ${stock <= 0 ? "out-of-stock-card" : ""}`}>
             {/* الشارة */}
-            {(discount > 0 || shipping === "مجاني" || label) && (
+            {(discount > 0 || shipping === "مجاني" || label || stock <= 0) && (
                 <span
-                    className={`product-label ${discount > 0
-                        ? "discount"
-                        : shipping === "مجاني"
-                            ? "free"
-                            : "custom"
+                    className={`product-label ${stock <= 0
+                        ? "out-of-stock"
+                        : discount > 0
+                            ? "discount"
+                            : shipping === "مجاني"
+                                ? "free"
+                                : "custom"
                         }`}
                 >
-                    {discount > 0
-                        ? `خصم ${discount}%`
-                        : shipping === "مجاني"
-                            ? "شحن مجاني"
-                            : label}
+                    {stock <= 0
+                        ? "نفد المخزون"
+                        : discount > 0
+                            ? `خصم ${discount}%`
+                            : shipping === "مجاني"
+                                ? "شحن مجاني"
+                                : label}
                 </span>
             )}
 
             <div className="maindata">
-                {/* أيقونة المفضلة */}
-                <img
-                    src={favFlag ? "/imgs/fav-red.png" : "/imgs/un-fav.png"}
-                    alt="fav"
-                    className="fav-icon"
+                {/* ✅ أيقونة المفضلة بنفس التصميم */}
+                <button
+                    className={`fav-btn ${isFavorite ? "active" : ""}`}
                     onClick={handleFavClick}
-                />
+                >
+                    <img
+                        src={isFavorite ? "/imgs/fav-red.png" : "/imgs/un-fav.png"}
+                        alt="fav"
+                    />
+                </button>
 
-                {/* صورة المنتج → تفتح صفحة التفاصيل */}
-                <img
-                    src={image}
-                    alt={name}
-                    className="product-image"
+                {/* صورة المنتج */}
+                <div
+                    className="image-wrapper"
                     onClick={goToProduct}
                     style={{ cursor: "pointer" }}
-                />
+                >
+                    <img
+                        src={image}
+                        alt={name}
+                        className={`product-image ${stock <= 0 ? "grayscale" : ""}`}
+                    />
+                    {stock <= 0 && (
+                        <div className="overlay">
+                            <span>غير متوفر حالياً</span>
+                        </div>
+                    )}
+                </div>
 
                 {/* التفاصيل */}
                 <div className="maininfo">
@@ -115,12 +153,17 @@ const ProductCard = ({
             </div>
 
             {/* زر العربة */}
-            <button className="buy-button" onClick={handleAddToCart}>
+            <button
+                className={`buy-button ${stock <= 0 ? "disabled" : ""}`}
+                onClick={handleAddToCart}
+                disabled={stock <= 0}
+            >
                 <img src="/imgs/cart.png" alt="cart" className="w-4 h-4" />
-                <span>أضف لعربتك</span>
+                <span>{stock > 0 ? "أضف لعربتك" : "غير متوفر"}</span>
             </button>
         </div>
     );
 };
 
 export default ProductCard;
+

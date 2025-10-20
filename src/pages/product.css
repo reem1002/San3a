@@ -1,6 +1,19 @@
+:root {
+  --hero-background: #f8f0df;
+  --hero-text-color: #6a3c0a;
+  --button-background: #c0e399;
+  --lable-background: #f8afb5;
+  --button-hover: #a8d88c;
+  --brown-hover: #462707;
+  --button-cart: #C0E399;
+  --inner: #F1E8D3;
+}
+
 .product-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   direction: rtl;
-  font-family: "Cairo", sans-serif;
   padding: 40px;
   color: #2b2b2b;
 }
@@ -11,6 +24,7 @@
   align-items: flex-start;
   flex-wrap: wrap;
 }
+
 
 .product-images {
   flex: 1;
@@ -43,6 +57,7 @@
   flex: 1;
   display: flex;
   flex-direction: column;
+  align-items: start;
   gap: 10px;
 }
 
@@ -57,6 +72,7 @@
 }
 
 .rating-price {
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -95,27 +111,33 @@
 }
 
 .buttons {
+  width: 100%;
+  margin-top: 20px;
   display: flex;
-  align-items: center;
+  align-items: center !important;
   gap: 10px;
+  justify-content: center;
 }
 
 .add-cart {
-  background: #a5c951;
-  border: none;
+  background: var(--button-cart);
+  border: 1px solid #000;
   padding: 8px 16px;
   border-radius: 6px;
-  color: #fff;
+  color: #000;
   font-weight: 600;
   display: flex;
   align-items: center;
-  gap: 5px;
+  gap: 15px;
   cursor: pointer;
 }
 
 .fav-btn {
-  background: none;
-  border: none;
+  background: var(--hero-background) ;
+  width: 50px;
+  height: 50px;
+  border: 1px solid #000 ;
+  border-radius: 8px;
   cursor: pointer;
 }
 
@@ -124,34 +146,54 @@
 }
 
 .shipping-note {
+  align-self: center;
   color: #e94f37;
   font-size: 13px;
+  text-align: center;
 }
 
 .details-section {
-  margin-top: 40px;
-  background: #fdf9f4;
-  padding: 20px;
+  margin: 80px 0;
+  background: var(--hero-background);
+  padding: 30px 40px;
   border-radius: 10px;
-  border: 1px solid #ddd;
+  border: 1px solid #000000;
+  width: 45%;
 }
 
 .details-section h3 {
-  margin-bottom: 15px;
+  margin-bottom: 20px;
   font-size: 18px;
+  font-weight: 700;
 }
 
 .info-box {
+  padding: 20px;
+  border-radius: 8px;
   display: flex;
   flex-direction: column;
   gap: 10px;
+  background-color: var(--inner);
 }
 
 .info-item {
   display: flex;
   justify-content: space-between;
-  background: #fff;
+
   padding: 10px;
   border-radius: 8px;
-  border: 1px solid #eee;
+}
+
+.key{
+  font-weight: 600;
+}
+
+.notes-box{
+  margin-top: 20px;
+}
+
+.add-cart.disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+
 }

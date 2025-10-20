@@ -1,46 +1,80 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setSearchTerm, applyFilters } from "../redux/productsSlice";
+import { toggleFavorite } from "../redux/favoritesSlice";
 import "./Nav.css";
+import { FaRegHeart, FaTrashAlt, FaOpencart } from "react-icons/fa";
 
 export default function Nav() {
     const [searchValue, setSearchValue] = useState("");
+    const [showFavDropdown, setShowFavDropdown] = useState(false);
+    const [showCartDropdown, setShowCartDropdown] = useState(false);
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const location = useLocation();
 
-    // 🔍 عند الضغط على أيقونة البحث
+    const favorites = useSelector((state) => state.favorites.favorites);
+    const cartItems = useSelector((state) => state.cart.cartItems);
+
+    const favRef = useRef(null);
+
+    // 🔹 البحث
     const handleSearchClick = () => {
         if (searchValue.trim() === "") {
-            // رجوع للديفولت لما السيرش يبقى فاضي
             dispatch(setSearchTerm(""));
             dispatch(applyFilters());
         } else {
             dispatch(setSearchTerm(searchValue));
             dispatch(applyFilters());
             if (location.pathname !== "/shop") navigate("/shop");
-
         }
     };
-
 
     useEffect(() => {
         const delayDebounce = setTimeout(() => {
             if (searchValue.trim() === "") {
-
                 dispatch(setSearchTerm(""));
                 dispatch(applyFilters());
             } else {
-
                 dispatch(setSearchTerm(searchValue));
                 dispatch(applyFilters());
                 if (location.pathname !== "/shop") navigate("/shop");
             }
         }, 1000);
-
         return () => clearTimeout(delayDebounce);
     }, [searchValue, dispatch, navigate, location.pathname]);
+
+    // 🔹 المفضلة toggle + إغلاق عند الضغط خارجها
+    const toggleFavDropdown = () => {
+        setShowFavDropdown((prev) => !prev);
+    };
+
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (favRef.current && !favRef.current.contains(event.target)) {
+                setShowFavDropdown(false);
+            }
+        };
+        document.addEventListener("mousedown", handleClickOutside);
+        return () => document.removeEventListener("mousedown", handleClickOutside);
+    }, []);
+
+    const handleRemoveFavorite = (product, e) => {
+        e.stopPropagation();
+        dispatch(toggleFavorite(product));
+    };
+
+    const handleProductClick = (id) => {
+        navigate(`/product/${id}`);
+        setShowFavDropdown(false);
+        setShowCartDropdown(false);
+    };
+
+    const goToCart = () => {
+        navigate("/cart");
+        setShowCartDropdown(false);
+    };
 
     return (
         <div className="nav-bar shadow-sm">
@@ -76,8 +110,111 @@ export default function Nav() {
 
                 <div className="nav_user">
                     <img src="/imgs/notification.png" alt="Notifications" className="nav-link-img" />
-                    <img src="/imgs/fav.png" alt="Favorites" className="nav-link-img" />
-                    <img src="/imgs/cart.png" alt="Cart" className="nav-link-img" />
+
+                    {/* ❤️ المفضلة */}
+                    <div ref={favRef} className="fav-icon-wrapper">
+                        <FaRegHeart
+                            className="fav-icon"
+                            size={26}
+                            color="#333"
+                            onClick={toggleFavDropdown}
+                        />
+                        {favorites.length > 0 && (
+                            <span className="fav-count">{favorites.length}</span>
+                        )}
+
+                        {showFavDropdown && (
+                            <div className="fav-dropdown">
+                                {favorites.length === 0 ? (
+                                    <p className="empty-fav">لا توجد منتجات مفضلة بعد ❤️</p>
+                                ) : (
+                                    favorites.map((item) => (
+                                        <div key={item.id} className="fav-item">
+                                            <img
+                                                src={item.image}
+                                                alt={item.name}
+                                                className="fav-thumb"
+                                                onClick={() => handleProductClick(item.id)}
+                                            />
+                                            <div className="fav-details">
+                                                <p
+                                                    className="fav-name"
+                                                    onClick={() => handleProductClick(item.id)}
+                                                >
+                                                    {item.name.length > 23
+                                                        ? item.name.slice(0, 20) + "..."
+                                                        : item.name}
+                                                </p>
+                                                <span className="fav-price">{item.price} ج.م</span>
+                                            </div>
+                                            <FaTrashAlt
+                                                className="fav-delete"
+                                                onClick={(e) => handleRemoveFavorite(item, e)}
+                                            />
+                                        </div>
+                                    ))
+                                )}
+                            </div>
+                        )}
+                    </div>
+
+                    {/* 🛒 العربة */}
+                    <div
+                        className="fav-icon-wrapper"
+                        onMouseEnter={() => setShowCartDropdown(true)}
+                        onMouseLeave={() => setShowCartDropdown(false)}
+                        onClick={goToCart}
+                    >
+                        <FaOpencart className="fav-icon" size={25} color="#333" />
+                        {cartItems.length > 0 && (
+                            <span className="fav-count">{cartItems.length}</span>
+                        )}
+
+                        {showCartDropdown && (
+                            <div className="fav-dropdown">
+                                {cartItems.length === 0 ? (
+                                    <p className="empty-fav">عربتك فارغة 🛒</p>
+                                ) : (
+                                    <>
+                                        {cartItems.slice(0, 3).map((item) => (
+                                            <div key={item.id} className="fav-item">
+                                                <img
+                                                    src={item.image}
+                                                    alt={item.name}
+                                                    className="fav-thumb"
+                                                    onClick={(e) => {
+                                                        e.stopPropagation();
+                                                        handleProductClick(item.id);
+                                                    }}
+                                                />
+                                                <div className="fav-details">
+                                                    <p
+                                                        className="fav-name"
+                                                        onClick={(e) => {
+                                                            e.stopPropagation();
+                                                            handleProductClick(item.id);
+                                                        }}
+                                                    >
+                                                        {item.name.length > 23
+                                                            ? item.name.slice(0, 20) + "..."
+                                                            : item.name}
+                                                    </p>
+                                                    <span className="fav-price">
+                                                        {item.price} ج.م × {item.quantity}
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        ))}
+                                        {cartItems.length > 3 && (
+                                            <p className="fav-more">
+                                                + {cartItems.length - 3} منتج آخر
+                                            </p>
+                                        )}
+                                    </>
+                                )}
+                            </div>
+                        )}
+                    </div>
                 </div>
 
                 <div className="nav_account">

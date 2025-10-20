@@ -1,15 +1,20 @@
 import React, { useState, useEffect } from "react";
 import "./product.css";
 import { useParams } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { toggleFavorite } from "../redux/favoritesSlice";
+import { addToCart, updateQuantity } from "../redux/cartSlice";
 
 export default function ProductPage() {
     const { id } = useParams();
-    const allProducts = useSelector((state) => state.products.allProducts);
-    const product = allProducts.find((p) => p.id === parseInt(id));
+    const dispatch = useDispatch();
 
+    const allProducts = useSelector((state) => state.products.allProducts);
+    const favorites = useSelector((state) => state.favorites.favorites);
+    const cartItems = useSelector((state) => state.cart.cartItems);
+
+    const product = allProducts.find((p) => p.id === parseInt(id));
     const [quantity, setQuantity] = useState(1);
-    const [fav, setFav] = useState(false);
 
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -21,6 +26,32 @@ export default function ProductPage() {
         product.discount > 0
             ? product.price - (product.price * product.discount) / 100
             : product.price;
+
+    const isFav = favorites.some((item) => item.id === product.id);
+    const itemInCart = cartItems.find((item) => item.id === product.id);
+
+    const handleAddToCart = () => {
+        if (product.stock === 0) return;
+
+        // لو المنتج موجود بالفعل في العربة
+        if (itemInCart) {
+            dispatch(
+                updateQuantity({
+                    id: product.id,
+                    quantity: itemInCart.quantity + Number(quantity),
+                })
+            );
+        } else {
+            dispatch(addToCart({ ...product, quantity: Number(quantity) }));
+        }
+
+        // Reset الكمية
+        setQuantity(1);
+    };
+
+    const handleToggleFavorite = () => {
+        dispatch(toggleFavorite(product));
+    };
 
     return (
         <div className="product-page">
@@ -38,7 +69,6 @@ export default function ProductPage() {
                 {/* معلومات المنتج */}
                 <div className="product-info">
                     <h2 className="product-title">{product.name}</h2>
-
                     <p className="product-desc">{product.description}</p>
 
                     <div className="rating-price">
@@ -70,6 +100,7 @@ export default function ProductPage() {
                             onChange={(e) => setQuantity(e.target.value)}
                             min={1}
                             max={product.stock}
+                            disabled={product.stock === 0}
                         />
                         <span className="stock-info">
                             {product.stock > 0
@@ -79,16 +110,21 @@ export default function ProductPage() {
                     </div>
 
                     <div className="buttons">
-                        <button className="add-cart">
-                            <img src="/imgs/cart.png" alt="cart" />
-                            أضف لعربتك
-                        </button>
                         <button
-                            className={`fav-btn ${fav ? "active" : ""}`}
-                            onClick={() => setFav(!fav)}
+                            className={`add-cart ${product.stock === 0 ? "disabled" : ""}`}
+                            onClick={handleAddToCart}
+                            disabled={product.stock === 0}
+                        >
+                            {product.stock === 0 ? "نفد المخزون" : "أضف لعربتك"}
+                            <img src="/imgs/cart.png" alt="cart" className="w-4 h-4" />
+                        </button>
+
+                        <button
+                            className={`fav-btn ${isFav ? "active" : ""}`}
+                            onClick={handleToggleFavorite}
                         >
                             <img
-                                src={fav ? "/imgs/fav-red.png" : "/imgs/un-fav.png"}
+                                src={isFav ? "/imgs/fav-red.png" : "/imgs/un-fav.png"}
                                 alt="fav"
                             />
                         </button>
@@ -105,9 +141,10 @@ export default function ProductPage() {
             {/* تفاصيل إضافية */}
             <div className="details-section">
                 <h3>معلومات إضافية</h3>
+                <hr />
                 <div className="info-box">
                     <div className="info-item">
-                        <strong>العروض:</strong>
+                        <span className="key">العروض:</span>
                         <span>
                             {product.discount > 0
                                 ? `خصم ${product.discount}%`
@@ -115,22 +152,22 @@ export default function ProductPage() {
                         </span>
                     </div>
                     <div className="info-item">
-                        <strong>حالة المنتج:</strong>
+                        <span className="key">حالة المنتج:</span>
                         <span>{product.status || "جاهز للشحن"}</span>
                     </div>
                     <div className="info-item">
-                        <strong>التصنيف:</strong>
+                        <span className="key">التصنيف:</span>
                         <span>{product.section}</span>
                     </div>
                     <div className="info-item">
-                        <strong>النوع:</strong>
+                        <span className="key">الحرفة:</span>
                         <span>{product.craft}</span>
                     </div>
                 </div>
 
                 {product.notes && (
                     <div className="notes-box">
-                        <h4>📋 ملاحظات:</h4>
+                        <h3>ملاحظات:</h3>
                         <p>{product.notes}</p>
                     </div>
                 )}

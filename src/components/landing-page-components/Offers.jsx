@@ -9,14 +9,13 @@ import { useNavigate } from "react-router-dom";
 export default function Offers() {
     const allProducts = useSelector((state) => state.products.allProducts);
 
-    // فلترة المنتجات اللي فيها خصم فقط
+
     const discountedProducts = allProducts.filter(
         (product) => product.discount && product.discount > 0
     );
 
     const navigate = useNavigate();
 
-    // الانتقال لصفحة المنتج
     const handleCardClick = (id) => {
         if (!id) return;
         navigate(`/product/${id}`);
@@ -25,8 +24,6 @@ export default function Offers() {
             behavior: "smooth",
         });
     };
-
-    // الانتقال لصفحة المتجر
     const handleToShop = () => {
         navigate("/shop");
         window.scrollTo({
@@ -58,22 +55,20 @@ export default function Offers() {
                 >
                     {discountedProducts.map((product, index) => (
                         <SwiperSlide key={index}>
-                            <div
-                                onClick={() => handleCardClick(product.id)}
-                                style={{ cursor: "pointer" }}
-                            >
-                                <ProductCard
-                                    image={product.image}
-                                    label={`-${product.discount}%`}
-                                    isFree={product.isFree}
-                                    name={product.name}
-                                    seller={product.seller}
-                                    craft={product.craft}
-                                    price={product.price}
-                                    rating={product.rating}
-                                    discount={product.discount}
-                                />
-                            </div>
+                            <ProductCard
+                                id={product.id}
+                                image={product.image}
+                                label={`-${product.discount}%`}
+                                isFree={product.isFree}
+                                name={product.name}
+                                seller={product.seller}
+                                craft={product.craft}
+                                price={product.price}
+                                rating={product.rating}
+                                discount={product.discount}
+                                stock={product.stock} // ✅ أضف السطر ده
+                                onOpenProduct={() => handleCardClick(product.id)}
+                            />
                         </SwiperSlide>
                     ))}
                 </Swiper>

@@ -6,6 +6,8 @@ import Footer from "./components/Footer.jsx";
 import ShopingPage from "./pages/shoping-page.jsx";
 import ScrollToTop from "./components/ScrollToTop";
 import ProductPage from "./pages/ProductPage.jsx";
+import CartPage from "./pages/CartPage.jsx"
+import Favorites from "./pages/Favorites.jsx";
 
 
 function App() {
@@ -17,6 +19,8 @@ function App() {
         <Route path="/" element={<LandingPage />} />
         <Route path="/shop" element={<ShopingPage />} />
         <Route path="/product/:id" element={<ProductPage />} />
+        <Route path="/cart" element={<CartPage />} />
+        {/* <Route path="/favorites" element={<Favorites />} /> */}
       </Routes>
       <Footer />
     </div>
