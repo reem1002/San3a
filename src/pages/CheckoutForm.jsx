@@ -13,6 +13,8 @@ export default function CheckoutForm({ cartItems, totalWithShipping, shippingCos
     });
 
     const [errors, setErrors] = useState({});
+    const [isSubmitting, setIsSubmitting] = useState(false); // ✅ لمنع الضغط المكرر
+    const [hasSubmitted, setHasSubmitted] = useState(false); // ✅ لمنع الإرسال نهائيًا بعد نجاحه
 
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -26,7 +28,7 @@ export default function CheckoutForm({ cartItems, totalWithShipping, shippingCos
         }
 
         if (!/^01[0-9]{9}$/.test(formData.phone)) {
-            newErrors.phone = "رقم الهاتف الذي أدخلته غير صحيح";
+            newErrors.phone = "رقم الهاتف الذي أدخلته غير صحيح.";
         }
 
         if (!formData.city) {
@@ -52,7 +54,11 @@ export default function CheckoutForm({ cartItems, totalWithShipping, shippingCos
     const handleSubmit = (e) => {
         e.preventDefault();
 
+        // ✅ منع الإرسال المزدوج تمامًا
+        if (isSubmitting || hasSubmitted) return;
         if (!validateForm()) return;
+
+        setIsSubmitting(true);
 
         let message = "*طلب جديد من منصة صنعة:*\n\n";
 
@@ -73,10 +79,15 @@ export default function CheckoutForm({ cartItems, totalWithShipping, shippingCos
         message += `*طريقة الدفع:* ${formData.payment}\n`;
 
         const encodedMessage = encodeURIComponent(message);
-        const whatsappNumber = "201004204036";
-        window.open(`https://wa.me/${whatsappNumber}?text=${encodedMessage}`, "_blank");
+        const whatsappNumber = "201022391604";
 
-        onClose();
+    
+        setTimeout(() => {
+            window.open(`https://wa.me/${whatsappNumber}?text=${encodedMessage}`, "_blank");
+            setHasSubmitted(true); 
+            setIsSubmitting(false);
+            onClose();
+        }, 800);
     };
 
     const cities = [
@@ -182,8 +193,13 @@ export default function CheckoutForm({ cartItems, totalWithShipping, shippingCos
                         {errors.payment && <p className="error-text">{errors.payment}</p>}
                     </div>
 
-                    <button type="submit" className="send-btn">إرسال الطلب</button>
-
+                    <button
+                        type="submit"
+                        className={`send-btn ${isSubmitting || hasSubmitted ? "disabled" : ""}`}
+                        disabled={isSubmitting || hasSubmitted}
+                    >
+                        {isSubmitting ? "جارٍ الإرسال..." : hasSubmitted ? "تم الإرسال" : "إرسال الطلب"}
+                    </button>
                 </form>
             </div>
         </div>
