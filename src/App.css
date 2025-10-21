@@ -5,6 +5,7 @@ body {
   font-family: "Kufam", sans-serif;
   background-color: var(--main_background);
   /* padding-top: 60px; */
+  overflow-x: hidden;
 }
 
 /* .App {

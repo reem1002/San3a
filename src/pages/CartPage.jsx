@@ -1,13 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { removeFromCart, updateQuantity, clearCart } from "../redux/cartSlice";
 import { Link } from "react-router-dom";
 import "./cart.css";
 import { FaTrashAlt } from "react-icons/fa";
+import CheckoutForm from "./CheckoutForm";
 
 export default function CartPage() {
     const dispatch = useDispatch();
     const cartItems = useSelector((state) => state.cart.cartItems);
+    const [showForm, setShowForm] = useState(false);
 
     const handleQuantityChange = (id, value) => {
         const qty = parseInt(value);
@@ -29,23 +31,14 @@ export default function CartPage() {
 
     const totalWithShipping = total + shippingCost;
 
-    const handleCheckout = () => {
-        let message = "*طلب جديد من منصة صنعة:*\n\n";
+    const handleOpenForm = () => {
+        setShowForm(true);
+        document.body.style.overflow = "hidden"; // منع التمرير أثناء ظهور الفورم
+    };
 
-        cartItems.forEach((item, index) => {
-            message += `*${index + 1}. ${item.name}* (كود المنتج: ${item.id})\n`;
-            message += `الكمية: ${item.quantity}\n`;
-            message += `السعر: ${item.price} × ${item.quantity} = *${item.price * item.quantity} ج.م*\n\n`;
-        });
-
-        message += `*مصاريف الشحن:* ${shippingCost} ج.م\n`;
-        message += `*الإجمالي الكلي:* ${totalWithShipping} ج.م\n\n`;
-        message += "*من فضلك قم بكتابة بيانات التوصيل (الاسم - العنوان - رقم الموبايل).*";
-
-        const encodedMessage = encodeURIComponent(message);
-        const whatsappNumber = "201004204036";
-
-        window.open(`https://wa.me/${whatsappNumber}?text=${encodedMessage}`, "_blank");
+    const handleCloseForm = () => {
+        setShowForm(false);
+        document.body.style.overflow = "auto";
     };
 
     if (cartItems.length === 0) {
@@ -117,12 +110,12 @@ export default function CartPage() {
                     <div className="pay-proceed">
                         <button
                             className="checkout-btn"
-                            onClick={handleCheckout}
+                            onClick={handleOpenForm} // ✅ فتح الفورم
                         >
                             متابعة الدفع
                         </button>
                         <p className="whatsapp-info">
-                            سيتم تحويلك إلى واتساب لإرسال طلبك، وستظهر الرسالة بشكل منسق.
+                            سيتم فتح نافذة لإدخال بياناتك قبل إرسال الطلب على واتساب.
                         </p>
                     </div>
                     <button
@@ -133,6 +126,15 @@ export default function CartPage() {
                     </button>
                 </div>
             </div>
+
+            {showForm && (
+                <CheckoutForm
+                    cartItems={cartItems}
+                    totalWithShipping={totalWithShipping}
+                    shippingCost={shippingCost}
+                    onClose={handleCloseForm}
+                />
+            )}
         </div>
     );
 }
