@@ -81,10 +81,10 @@ export default function CheckoutForm({ cartItems, totalWithShipping, shippingCos
         const encodedMessage = encodeURIComponent(message);
         const whatsappNumber = "201022391604";
 
-    
+
         setTimeout(() => {
             window.open(`https://wa.me/${whatsappNumber}?text=${encodedMessage}`, "_blank");
-            setHasSubmitted(true); 
+            setHasSubmitted(true);
             setIsSubmitting(false);
             onClose();
         }, 800);
@@ -170,7 +170,7 @@ export default function CheckoutForm({ cartItems, totalWithShipping, shippingCos
                         </div>
                     </div>
 
-                    <div className="input-row">
+                    {/* <div className="input-row">
                         <div className="field-group full-width">
                             <textarea
                                 name="notes"
@@ -179,7 +179,7 @@ export default function CheckoutForm({ cartItems, totalWithShipping, shippingCos
                                 onChange={handleChange}
                             ></textarea>
                         </div>
-                    </div>
+                    </div> */}
 
                     {/* طريقة الدفع */}
                     <h4 className="section-title">طريقة الدفع</h4>
