@@ -53,8 +53,6 @@ export default function CheckoutForm({ cartItems, totalWithShipping, shippingCos
 
     const handleSubmit = (e) => {
         e.preventDefault();
-
-        // ✅ منع الإرسال المزدوج تمامًا
         if (isSubmitting || hasSubmitted) return;
         if (!validateForm()) return;
 

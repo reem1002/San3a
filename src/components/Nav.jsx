@@ -79,7 +79,9 @@ export default function Nav() {
     return (
         <div className="nav-bar shadow-sm">
             <div className="nav container">
-                <img src="/imgs/logo.png" alt="Logo" className="logo" />
+                <Link to="/" >
+                    <img src="/imgs/logo.png" alt="Logo" className="logo" />
+                </Link>
 
                 <div className="Navs_links">
                     <Link to="/" className="nav-link">
