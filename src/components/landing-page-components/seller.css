@@ -26,6 +26,7 @@
 }
 
 @media (max-width: 768px) {
+  
   .seller-container{
     margin-top: 50px !important;
     height: auto;
@@ -48,4 +49,15 @@
   justify-content: center;
   margin: 25px auto;
 }
+}
+
+@media (max-width: 362px) {
+  
+  .seller-container{
+    margin-top: 50px !important;
+    height: auto;
+    margin-bottom: 30px;
+    width: 100%;
+  }
+
 }

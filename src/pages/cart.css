@@ -187,9 +187,7 @@
   }
 
   .cart-buttons {
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
+   margin-bottom: 25px;
   }
 
   .pay-proceed,
@@ -240,6 +238,9 @@
     font-size: 0.9rem;
   }
 
+  .cart-buttons{
+    align-items: center;
+  }
   .checkout-btn,
   .clear-btn {
     font-size: 14px;
