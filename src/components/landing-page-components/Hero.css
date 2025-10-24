@@ -117,6 +117,7 @@ body {
     flex-wrap: wrap;
     gap: 50px;
     order: 2; 
+    margin-bottom: 10px;
   }
 
   .right_side {
