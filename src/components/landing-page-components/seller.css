@@ -29,7 +29,7 @@
   .seller-container{
     margin-top: 50px !important;
     height: auto;
-    margin-bottom: 55px;
+    margin-bottom: 30px;
     width: 95%;
   }
 .slider-container{
@@ -37,6 +37,8 @@
 }
 .slick-dots{
   bottom: 10 !important;
+  flex-wrap: wrap;
+  height: 20px;
 }
 .sec-title{
   width: 95%;
