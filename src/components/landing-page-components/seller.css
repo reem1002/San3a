@@ -24,3 +24,26 @@
   transform: scale(1.02);
   transition: color 0.3s ease;
 }
+
+@media (max-width: 768px) {
+  .seller-container{
+    margin-top: 50px !important;
+    height: auto;
+    margin-bottom: 55px;
+    width: 95%;
+  }
+.slider-container{
+  margin-left: 0;
+}
+.slick-dots{
+  bottom: 10 !important;
+}
+.sec-title{
+  width: 95%;
+  text-align: center;
+}
+  .seller-container .upperbox{
+  justify-content: center;
+  margin: 25px auto;
+}
+}

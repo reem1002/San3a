@@ -5,6 +5,10 @@ import { setSearchTerm, applyFilters } from "../redux/productsSlice";
 import { toggleFavorite } from "../redux/favoritesSlice";
 import "./Nav.css";
 import { FaRegHeart, FaTrashAlt, FaOpencart } from "react-icons/fa";
+import { FaBars, FaTimes } from "react-icons/fa";
+import { FiMenu, FiX } from "react-icons/fi";
+
+
 
 export default function Nav() {
     const [searchValue, setSearchValue] = useState("");
@@ -13,6 +17,7 @@ export default function Nav() {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const location = useLocation();
+    const [menuOpen, setMenuOpen] = useState(false);
 
     const favorites = useSelector((state) => state.favorites.favorites);
     const cartItems = useSelector((state) => state.cart.cartItems);
@@ -83,32 +88,34 @@ export default function Nav() {
                     <img src="/imgs/logo.png" alt="Logo" className="logo" />
                 </Link>
 
-                <div className="Navs_links">
-                    <Link to="/" className="nav-link">
+
+
+                <div className={`Navs_links ${menuOpen ? "open" : ""}`}>
+                    <Link to="/" className="nav-link" onClick={() => setMenuOpen(false)}>
                         <img src="/imgs/home-icon.png" alt="Home" className="nav-link-img" />
                     </Link>
-                    <Link to="/shop" className="nav-link">
+                    <Link to="/shop" className="nav-link" onClick={() => setMenuOpen(false)}>
                         <img src="/imgs/shop icon.png" alt="Shop" className="nav-link-img" />
                     </Link>
-                    {/* <Link to="/learn" className="nav-link">
-                        <img src="/imgs/learn-icon.png" alt="Learn" className="nav-link-img" />
-                    </Link> */}
+
+                    <div className="search">
+                        <img
+                            src="/imgs/search.png"
+                            alt="Search"
+                            className="search-icon"
+                            onClick={handleSearchClick}
+                        />
+                        <input
+                            type="text"
+                            placeholder="هل تبحث عن منتج معين؟"
+                            value={searchValue}
+                            onChange={(e) => setSearchValue(e.target.value)}
+                        />
+                    </div>
                 </div>
 
-                <div className="search">
-                    <img
-                        src="/imgs/search.png"
-                        alt="Search"
-                        className="search-icon"
-                        onClick={handleSearchClick}
-                    />
-                    <input
-                        type="text"
-                        placeholder="هل تبحث عن منتج معين؟"
-                        value={searchValue}
-                        onChange={(e) => setSearchValue(e.target.value)}
-                    />
-                </div>
+
+
 
                 <div className="nav_user">
                     {/* <img src="/imgs/notification.png" alt="Notifications" className="nav-link-img" /> */}
@@ -217,6 +224,10 @@ export default function Nav() {
                             </div>
                         )}
                     </div>
+                    <div className="menu-icon" onClick={() => setMenuOpen(!menuOpen)}>
+                        {menuOpen ? <FiX size={24} /> : <FiMenu size={24} />}
+                    </div>
+
                 </div>
 
                 {/* <div className="nav_account">

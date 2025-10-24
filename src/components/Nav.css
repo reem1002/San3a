@@ -1,3 +1,13 @@
+:root {
+  --hero-background: #f8f0df;
+  --hero-text-color: #6a3c0a;
+  --button-background: #c0e399;
+  --lable-background: #f8afb5;
+  --button-hover: #a8d88c;
+  --brown-hover: #462707;
+  --main-background: #fefbf3;
+}
+
 body {
   font-family: "Kufam", sans-serif;
 }
@@ -211,3 +221,48 @@ body {
 }
 
 
+
+.menu-icon {
+  display: none;
+  cursor: pointer;
+  width: 30px;
+  padding: 3px;
+  border-radius: 5px;
+  background-color: var(--button-hover);
+  transition: transform 0.2s ease;
+}
+
+.menu-icon:hover {
+  transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+  .menu-icon {
+    display: block;
+    color: #000;
+    
+  }
+
+  .Navs_links {
+    display: none;
+    flex-direction: column;
+    background: var(--main-background);
+    position: absolute;
+    top: 70px;
+    left: 10px;
+    /* width: 150px; */
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    z-index: 1000;
+  }
+
+  .Navs_links.open {
+    display: flex;
+  }
+
+  .nav-link-img {
+    margin: 10px 0;
+    height: 25px;
+  }
+}

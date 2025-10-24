@@ -24,3 +24,52 @@
   transform: scale(1.02);
   transition: color 0.3s ease;
 }
+
+@media (max-width: 992px) {
+  .cards-display {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .cards-display {
+    display: flex;
+    overflow-x: auto;
+    gap: 15px;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 10px;
+  }
+
+  .cards-display::-webkit-scrollbar {
+    display: none; 
+  }
+
+  .cards-display > * {
+    flex: 0 0 80%; 
+    scroll-snap-align: start;
+  }
+
+  .section-title {
+    font-size: 24px;
+  }
+
+  .sectionfooter {
+    font-size: 15px;
+  }
+}
+
+/* 📱 الشاشات الصغيرة جدًا */
+@media (max-width: 480px) {
+  .cards-display > * {
+    flex: 0 0 90%;
+  }
+
+  .section-title {
+    font-size: 20px;
+  }
+
+  .sectionfooter {
+    font-size: 14px;
+  }
+}

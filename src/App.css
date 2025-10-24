@@ -25,3 +25,16 @@ body {
   background-color: #fff;
   border-radius: 3px;
 }
+
+@media (max-width: 768px) {
+  /* إخفاء شكل السكرول في الشاشات الصغيرة */
+  ::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* للمتصفحات اللي مش WebKit زي Firefox */
+  body {
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* Internet Explorer و Edge القديم */
+  }
+}

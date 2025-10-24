@@ -120,3 +120,137 @@
   align-items: center;
   flex-direction: column;
 }
+/* 🌿 Responsive Footer Styles */
+@media (max-width: 992px) {
+  .footer {
+    height: auto;
+    padding: 40px 20px;
+  }
+/* .footer-subscribe {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 9999px;
+  flex-direction: row;
+
+} */
+
+  .footer-content {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+  }
+
+  .footer-subscribe input {
+    width: 250px;
+  }
+
+  .footer-subscribe button {
+    font-size: 16px;
+    padding: 10px 24px;
+  }
+
+  .footer-title {
+    font-size: 20px;
+    text-align: center;
+  }
+
+  .social-icons a {
+    font-size: 26px;
+  }
+
+  .footer-divider {
+    display: none;
+  }
+}
+
+@media (max-width: 767px) {
+    .footer-content{
+      gap: 50px !important;
+      padding-bottom: 60px;
+      padding-top: 15px;
+    }
+   .footer-subscribe {
+    width: 90%;
+    max-width: 350px;
+    display: flex;
+    flex-direction: row !important;
+    flex-wrap: nowrap;
+    gap: 0;
+   background-color: #fff !important;
+  border: 1px solid #ccc !important;
+  border-radius: 9999px !important;
+  }
+
+  .footer-subscribe input {
+    width: 70%;
+    font-size: 13px;
+    padding: 10px 14px;
+  }
+
+  .footer-subscribe button {
+    width: 110px;
+    font-size: 15px;
+    padding: 10px 20px;
+  }
+  .footer {
+    padding: 40px 10px;
+  }
+
+  .footer-content {
+    gap: 25px;
+  }
+
+  .footer-subscribe {
+  
+    background-color: transparent;
+    border: none;
+  }
+
+  .footer-subscribe {
+    max-width: 300px;
+  }
+
+ 
+  .footer-social {
+    text-align: center;
+  }
+
+  .footer-title {
+    font-size: 18px;
+  }
+
+  .social-icons a {
+    font-size: 24px;
+    margin: 0 8px;
+  }
+
+  .footer-bottom {
+    font-size: 13px;
+    height: 50px;
+  }
+}
+
+@media (max-width: 480px) {
+
+  .footer-subscribe button {
+    font-size: 14px;
+    padding: 9px 18px;
+  }
+
+  .footer-title {
+    font-size: 16px;
+  }
+
+  .social-icons a {
+    font-size: 22px;
+  }
+
+  .footer-bottom {
+    font-size: 12px;
+  }
+}

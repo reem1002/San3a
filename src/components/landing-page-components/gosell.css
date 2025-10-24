@@ -122,3 +122,99 @@ html {
   font-size: 16px;
   transition: all 0.2s ease;
 }
+
+
+@media (max-width: 992px) {
+  .go-sell-section .leftside {
+    margin-left: 100px;
+    width: 60%;
+  }
+
+  .go-sell-section .sell-line {
+    font-size: 30px;
+  }
+
+  .go-sell-section .sell-btn {
+    margin-left: 60px;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .go-sell-section {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-position: center;
+    height: 70vh;
+  }
+
+  .go-sell-section .leftside {
+    width: 60%;
+    margin-left: 0;
+    text-align: center;
+    align-items: center;
+  }
+
+  .go-sell-section .sell-line {
+    font-size: 26px;
+    text-align: left;
+    font-weight: 650;
+  }
+
+  .go-sell-section .sell-btn {
+    margin: 0;
+    align-self: center;
+    font-size: 15px;
+    align-self: self-start;
+  }
+}
+
+@media (max-width: 480px) {
+  .go-sell-section {
+    height: 65vh;
+    background-size: cover;
+    text-align: left;
+    padding:10px 25px ;
+  }
+
+  .go-sell-section .leftside {
+    width: 90%;
+    gap: 15px;
+    text-align: left;
+  }
+
+  .go-sell-section .sell-line {
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 1.4;
+    text-align: left;
+  }
+
+  .go-sell-section .sell-btn {
+    font-size: 14px;
+    padding: 6px 12px;
+    align-self: self-start;
+  }
+
+  .modal-box {
+    padding: 20px;
+    width: 85%;
+    max-width: 320px;
+  }
+
+  .modal-box h3 {
+    font-size: 18px;
+  }
+
+  .modal-box p {
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+
+  .confirm-btn,
+  .cancel-btn {
+    font-size: 14px;
+    padding: 8px 14px;
+  }
+}

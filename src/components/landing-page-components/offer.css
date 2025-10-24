@@ -89,3 +89,123 @@
   margin-top: -80px !important;
   justify-content: right;
 }
+
+@media (max-width: 768px) {
+   .offerline {
+    background: none;
+    height: auto;
+    width: 100%;
+    margin: 0;
+    text-align: right;
+    justify-content: flex-start;
+    padding: 0 10px;
+  }
+
+   .offers-section .swiper-slide{
+    width: 45% !important;
+  }
+
+  .line {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--hero-text-color);
+    text-align: right !important;
+    width: 100%;
+    margin-bottom: 15px;
+  }
+
+  .offers-section .card {
+    /* width: 65vw; */
+    max-width: 400px;
+    padding: 20px;
+    margin: 10px ;
+  }
+
+  .offers-section .mySwiper {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .offers-section {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 40px 0 !important;
+  }
+
+  .section-container-offers .sectionfooter {
+    justify-content: center;
+    text-align: center;
+    margin-top: 0 !important;
+  }
+    .section-container-offers .sectionfooter{
+justify-self: end;
+  }
+
+}
+@media (max-width: 766px) {
+  .offerline {
+    background: none;
+    height: auto;
+    width: 100%;
+    margin: 0;
+    text-align: right;
+    justify-content: flex-start;
+    padding: 0 10px;
+  }
+
+   .offers-section .swiper-slide{
+    width: 85% !important;
+  }
+
+  .line {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--hero-text-color);
+    text-align: right !important;
+    width: 100%;
+    margin-bottom: 15px;
+  }
+
+  .offers-section .card {
+    /* width: 65vw; */
+    max-width: 400px;
+    padding: 20px;
+    margin: 10px ;
+  }
+
+  .offers-section .mySwiper {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .offers-section {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 40px 0 !important;
+  }
+
+  .section-container-offers .sectionfooter {
+    justify-content: center;
+    text-align: center;
+    margin-top: 0 !important;
+  }
+    .section-container-offers .sectionfooter{
+justify-self: end;
+  }
+}
+
+@media (max-width: 392px){
+     .offers-section .swiper-slide{
+    width: 91% !important;
+  }
+
+}
+
+@media (max-width: 370px){
+     .offers-section .swiper-slide{
+    width: 95% !important;
+  }
+
+}

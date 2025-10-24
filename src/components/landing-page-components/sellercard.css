@@ -102,3 +102,56 @@
   top: 30px;
   right: 30px;
 }
+
+@media (max-width: 768px) {
+  
+
+  .seller-card-container {
+    flex-direction: column; 
+    align-items: center;
+    height: auto;
+    padding: 20px;
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto;
+  }
+
+  .seller-image {
+    width: 100%;
+    height: 180px;
+    margin: 0 0 12px 0;
+    border-radius: 12px;
+  }
+
+  .seller-info {
+    align-items: center;
+    text-align: center;
+  }
+
+  .seller-name {
+    font-size: 18px;
+    margin-bottom: 6px;
+  }
+
+  .seller-description {
+    font-size: 14px;
+    line-height: 1.4;
+    margin-bottom: 10px;
+  }
+
+  .seller-separator {
+    width: 80%;
+  }
+
+  .seller-icons {
+    display: none;
+  }
+
+  .seller-icons img {
+    display: none;
+  }
+
+  .rating-box {
+    display: none;
+  }
+}

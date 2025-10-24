@@ -91,19 +91,29 @@ const KnowSellers = () => {
         slidesToScroll: 1,
         responsive: [
             {
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 2,
+                },
+            },
+            {
                 breakpoint: 768,
                 settings: {
                     slidesToShow: 1,
+                    arrows: false,
+                    centerMode: true,
+                    centerPadding: "0px",
                 },
             },
         ],
     };
 
+
     return (
         <div className="container seller-container">
-            <div className="flex items-center justify-between mb-6 upperbox">
+            <div className="flex items-center justify-between mb-6 upperbox sec-title">
                 <h2 className="section-title ">تعرف على بائعي صنعة</h2>
-                <span className="section-subtitle">الجميع</span>
+                {/* <span className="section-subtitle">الجميع</span> */}
             </div>
             <Slider {...settings} className="slider-container">
                 {sellers.map((seller, index) => (
