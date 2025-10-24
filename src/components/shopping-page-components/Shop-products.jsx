@@ -15,8 +15,13 @@ const ShopProducts = () => {
     );
 
     useEffect(() => {
-        window.scrollTo({ top: 0, behavior: "smooth" });
-    }, []);
+        if (isSidebarVisible) {
+            document.body.style.overflow = "hidden";
+        } else {
+            document.body.style.overflow = "auto";
+        }
+    }, [isSidebarVisible]);
+
     const isFiltering =
         Object.values(filters).some(
             (val) => val !== "" && val !== false && val !== "كل الحرف"
@@ -47,8 +52,19 @@ const ShopProducts = () => {
             />
 
             <div className="shop-content">
-                {isSidebarVisible && <FiltersSidebar />}
-
+                {isSidebarVisible && (
+                    <div
+                        className="filters-overlay"
+                        onClick={() => setIsSidebarVisible(false)}
+                    >
+                        <div
+                            className="filters-sidebar-container"
+                            onClick={(e) => e.stopPropagation()}
+                        >
+                            <FiltersSidebar />
+                        </div>
+                    </div>
+                )}
                 <div
                     className={`cards-display ${isSidebarVisible ? "with-sidebar" : "full-width"
                         }`}
@@ -69,6 +85,7 @@ const ShopProducts = () => {
                     )}
                 </div>
             </div>
+
 
             {products.length > 0 && (
                 <PaginationComponent

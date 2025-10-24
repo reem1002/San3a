@@ -31,3 +31,11 @@
     align-self: center;
     margin-bottom: 16px;
 }
+
+@media (max-width: 768px) {
+  .filters-sidebar-container{
+    max-width: 280px;
+    /* background-color: #555; */
+  }
+
+}

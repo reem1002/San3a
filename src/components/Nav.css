@@ -265,4 +265,11 @@ body {
     margin: 10px 0;
     height: 25px;
   }
+  .fav-dropdown{
+    left: -10px;
+    width: 240px;
+  }
+  .fav-thumb{
+    margin-right: 0;
+  }
 }

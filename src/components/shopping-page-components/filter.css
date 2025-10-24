@@ -128,3 +128,54 @@ align-items: center;
   transform: scale(1.1);
   cursor: pointer;
 }
+
+
+@media (max-width: 992px) {
+  .filters-overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 1000;
+    display: flex;
+    justify-content: flex-end;
+    animation: fadeIn 0.3s ease-in-out;
+  }
+
+  .filters-sidebar {
+    padding: 0;
+    width: 100%;
+    max-width: 320px;
+    height: 100%;
+    background: var(--hero-background);
+    border-radius: 0;
+    /* box-shadow: -4px 0 12px rgba(0, 0, 0, 0.15); */
+    padding: 25px;
+    animation: slideIn 0.4s ease forwards;
+    overflow-y: auto;
+    border: none;
+  }
+
+
+  @keyframes slideIn {
+    from {
+      transform: translateX(100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+}
