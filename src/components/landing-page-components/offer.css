@@ -201,6 +201,13 @@ justify-self: end;
     width: 91% !important;
   }
 
+  
+  .section-container-offers .sectionfooter {
+    width: 100%;
+    justify-content: end !important;
+    text-align: right;
+    margin-top: 0 !important;
+  }
 }
 
 @media (max-width: 370px){
