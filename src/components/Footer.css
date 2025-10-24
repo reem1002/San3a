@@ -236,7 +236,29 @@
 }
 
 @media (max-width: 480px) {
+   .footer-subscribe {
+    width: 90%;
+    max-width: 350px;
+    display: flex;
+    flex-direction: row !important;
+    flex-wrap: nowrap;
+    gap: 0;
+   background-color: #fff !important;
+  border: 1px solid #ccc !important;
+  border-radius: 9999px !important;
+  }
 
+.footer-subscribe input {
+    width: 65%;
+    font-size: 13px;
+    padding: 10px 14px;
+  }
+
+  .footer-subscribe button {
+    width: 110px;
+    font-size: 15px;
+    padding: 10px 20px;
+  }
   .footer-subscribe button {
     font-size: 14px;
     padding: 9px 18px;
