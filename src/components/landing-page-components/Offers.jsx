@@ -48,6 +48,10 @@ export default function Offers() {
                     navigation
                     className="mySwiper"
                     breakpoints={{
+                        breakpoint: 920,
+                        settings: {
+                            slidesToShow: 2,
+                        },
                         760: {
                             slidesPerView: 3,
                         },

@@ -94,6 +94,43 @@
   transform: scale(1.02);
   transition: transform 0.3s ease;
 }
+@media (max-width: 1280px){
+  .swip-container-img img {
+width: 300px;
+  }
+}
+@media (max-width: 1024px) {
+  .section-title {
+    font-size: 20px;
+  }
+
+  .option_box {
+    font-size: 13px;
+
+  }
+
+  .swiper-container {
+    width: 100%;
+    overflow: hidden;
+    text-align: center !important;
+  }
+
+.swip-container-img{
+  height: auto;
+  width: 100% !important;
+  justify-content: start !important;
+  text-align: center !important;
+}
+
+  .swip-container-img img {
+width: 200px;
+  }
+.swiper-slide {
+    width: 220px !important;
+    text-align: center !important;
+}
+
+}
 
 @media (max-width: 768px) {
 

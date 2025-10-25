@@ -154,3 +154,42 @@ body {
     height: 50px;
   }
 }
+
+@media (max-width: 992px) {
+
+   .hero_logo {
+    max-width: 310px;
+  }
+  
+  
+.hero_title {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--hero-text-color);
+}
+
+.lefttext {
+  font-size: 18px;
+  font-weight: bold;
+  align-self: center;
+  margin-bottom: 10px;
+  color: var(--hero-text-color);
+}
+
+.leftimg{
+  width: 45px;
+}
+.leftflower1{
+  width: 69px;
+}
+
+.leftflower2{
+   width: 69px;
+   left: 30px;
+
+}
+
+.hero_item1{
+  bottom: -10px;
+}
+}

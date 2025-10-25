@@ -55,8 +55,23 @@
 }
 
 
+@media (max-width: 992px) {
+  .shoping-page-container .shop-content .cards-display.with-sidebar,
+  .shoping-page-container .cards-display.full-width {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
 
- @media (max-width: 768px) {
+    
+  }
+
+  .shoping-page-container .shop-content .cards-display.with-sidebar .card{
+    min-height:  400px;
+
+  }
+}
+
+
+ @media (max-width: 765px) {
   .shoping-page-container .shop-content .cards-display.with-sidebar,
   .shoping-page-container .cards-display.full-width {
     grid-template-columns: repeat(1, 1fr);

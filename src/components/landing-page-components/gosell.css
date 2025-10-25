@@ -124,7 +124,40 @@ html {
 }
 
 
+@media (max-width: 1280px) {
+  .go-sell-section {
+  background-image: url(../../../public/imgs/section-cover2.png);
+  background-size:auto;
+  background-repeat: no-repeat;
+  background-position: top;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  margin: auto;
+  margin-top: -50px;
+}
+
+.go-sell-section .leftside {
+    margin-left: 100px;
+    width: 60%;
+  }
+
+  .go-sell-section .sell-line {
+    font-size: 30px;
+  }
+
+  .go-sell-section .sell-btn {
+    margin-left: 130px;
+    font-size: 16px;
+  }
+}
+
+
 @media (max-width: 992px) {
+
+    .go-sell-section{
+      margin-top: -150px;
+    }
   .go-sell-section .leftside {
     margin-left: 100px;
     width: 60%;
@@ -147,6 +180,7 @@ html {
     justify-content: center;
     background-position: center;
     height: 70vh;
+    margin-top: 0;
   }
 
   .go-sell-section .leftside {

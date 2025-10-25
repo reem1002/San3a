@@ -195,7 +195,43 @@
 }
 
 
+@media (max-width: 1280px) {
+  .cards-display {
+      gap: 0;
+    }
+.card {
+   width: 300px;
 
+}
+
+.maindata{
+  flex-direction: column;
+  text-align: center;
+}
+.maininfo{
+   text-align: center;
+}
+
+}
+
+@media (max-width: 992px) { 
+  .cards-display {
+      gap: 0;
+    }
+.card {
+   width: 300px;
+
+}
+
+.maindata{
+  flex-direction: column;
+  text-align: center;
+}
+.maininfo{
+   text-align: center;
+}
+
+}
 @media (max-width: 480px) {
     .cards-display {
       gap: 0;

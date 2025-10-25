@@ -22,7 +22,7 @@ const NewArrive = () => {
     };
 
     return (
-        <div className="container section-container">
+        <div className="container section-container  new-sec-con">
             <div className="section-card-container">
                 <div className="flex items-center justify-between mb-6 upperbox">
                     <h2 className="section-title">وصلت حديثًا</h2>

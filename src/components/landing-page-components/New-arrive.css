@@ -5,7 +5,7 @@
   --lable-background: #f8afb5;
   --brown-hover: #462707;
 }
-.cards-display {
+.new-sec-con .cards-display {
   display: grid;
   grid-template-columns: repeat(3, minmax(300px, 1fr));
   gap: 15px;
@@ -25,15 +25,44 @@
   transition: color 0.3s ease;
 }
 
-@media (max-width: 992px) {
-  .cards-display {
+
+
+
+@media (max-width: 1024px) {
+  .new-sec-con.cards-display {
     grid-template-columns: repeat(2, 1fr);
     gap: 10px;
+    margin: auto;
+    margin-left: 80px;
+    
   }
+
+    .section-title {
+    font-size: 24px;
+    font-weight: 700;
+  }
+  
+
 }
 
-@media (max-width: 768px) {
-  .cards-display {
+@media (max-width: 992px) {
+  .new-sec-con.cards-display {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin: auto;
+    margin-left: 20px;
+  }
+
+    .section-title {
+    font-size: 24px;
+    font-weight: 700;
+  }
+  
+
+}
+
+@media (max-width: 766px) {
+  .new-sec-con.cards-display {
     display: flex;
     overflow-x: auto;
     gap: 15px;
@@ -52,6 +81,7 @@
 
   .section-title {
     font-size: 24px;
+    font-weight: 600;
   }
 
   .sectionfooter {
@@ -61,7 +91,7 @@
 
 /* 📱 الشاشات الصغيرة جدًا */
 @media (max-width: 480px) {
-  .cards-display > * {
+  .new-sec-con.cards-display > * {
     flex: 0 0 90%;
   }
 
