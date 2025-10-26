@@ -120,7 +120,7 @@
   align-items: center;
   flex-direction: column;
 }
-/* 🌿 Responsive Footer Styles */
+
 @media (max-width: 992px) {
   .footer {
     height: auto;
@@ -193,7 +193,7 @@
   }
 
   .footer-subscribe button {
-    width: 110px;
+    width: 120px;
     font-size: 15px;
     padding: 10px 20px;
   }
@@ -209,10 +209,6 @@
   
     background-color: transparent;
     border: none;
-  }
-
-  .footer-subscribe {
-    max-width: 300px;
   }
 
  
@@ -247,23 +243,19 @@
   border: 1px solid #ccc !important;
   border-radius: 9999px !important;
   }
-
+@media (max-width: 542px){
+    
 .footer-subscribe input {
-    width: 65%;
+    width: 60%;
     font-size: 13px;
     padding: 10px 14px;
   }
-
   .footer-subscribe button {
-    width: 110px;
+    width: 150px;
     font-size: 15px;
     padding: 10px 20px;
   }
-  .footer-subscribe button {
-    font-size: 14px;
-    padding: 9px 18px;
-  }
-
+}
   .footer-title {
     font-size: 16px;
   }
@@ -274,19 +266,5 @@
 
   .footer-bottom {
     font-size: 12px;
-  }
-}
-@media (max-width: 542px){
-
-  
-.footer-subscribe input {
-    width: 65%;
-    font-size: 13px;
-    padding: 10px 14px;
-  }
-  .footer-subscribe button {
-    width: 120px;
-    font-size: 15px;
-    padding: 10px 20px;
   }
 }

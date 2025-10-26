@@ -1,18 +1,26 @@
-import LandingPage from "./pages/Landing-page.jsx";
-import { Routes, Route } from 'react-router-dom';
-import "./App.css";
-import Nav from "./components/Nav.jsx";
-import Footer from "./components/Footer.jsx";
-import ShopingPage from "./pages/shoping-page.jsx";
+import { useState, useEffect } from "react";
+import LandingPage from "./pages/Landing-page";
+import { Routes, Route } from "react-router-dom";
+import Nav from "./components/Nav";
+import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
-import ProductPage from "./pages/ProductPage.jsx";
-import CartPage from "./pages/CartPage.jsx"
-import Favorites from "./pages/Favorites.jsx";
-
-
+import ShopingPage from "./pages/shoping-page";
+import ProductPage from "./pages/ProductPage";
+import CartPage from "./pages/CartPage";
+import AppLoader from "./pages/AppLoader"; // 👈
+import "./App.css";
 function App() {
+  const [showLoader, setShowLoader] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setShowLoader(false), 3000); // 3 ثواني
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (showLoader) return <AppLoader />;
+
   return (
-    <div className="App">
+    <div className="App fade-in">
       <ScrollToTop />
       <Nav />
       <Routes>
@@ -20,7 +28,6 @@ function App() {
         <Route path="/shop" element={<ShopingPage />} />
         <Route path="/product/:id" element={<ProductPage />} />
         <Route path="/cart" element={<CartPage />} />
-        {/* <Route path="/favorites" element={<Favorites />} /> */}
       </Routes>
       <Footer />
     </div>

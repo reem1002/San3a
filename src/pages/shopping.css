@@ -33,9 +33,11 @@
   grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
   flex: 1;
+  
 }
+
 .shoping-page-container .shop-content .cards-display.with-sidebar .card{
-   max-height: auto;
+   max-height:410px;
 }
 
 

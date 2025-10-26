@@ -139,6 +139,18 @@ body {
 }
 }
 
+@media (max-width: 1024px) {
+.hero {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 60vh;
+  background-color: var(--hero-background);
+  color: var(--hero-text-color);
+}
+}
+
+
 @media (max-width: 992px) {
 .hero {
   display: flex;
@@ -153,7 +165,7 @@ body {
 @media (max-width: 768px) {
   .hero {
     flex-direction: column;
-    height: auto;
+    height: 60vh;
     padding: 30px 10px;
     text-align: center;
   }
@@ -215,3 +227,12 @@ body {
 }
 
 
+@media (max-width: 480px) {
+
+   .hero {
+    flex-direction: column;
+    height: 65vh;
+    padding: 30px 10px;
+    text-align: center;
+  }
+}
