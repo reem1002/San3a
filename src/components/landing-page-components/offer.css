@@ -82,7 +82,7 @@
 .offers-section .mySwiper {
   height: auto;
   width: 100%;
-  margin-left: 20px;
+  /* margin-left: 20px; */
 }
 
 .section-container-offers .sectionfooter {
@@ -90,244 +90,100 @@
   justify-content: right;
 }
 
-@media (max-width: 768px) {
-   .offerline {
-    background: none;
-    height: auto;
-    width: 100%;
-    margin: 0;
-    text-align: right;
-    justify-content: flex-start;
-    padding: 0 10px;
-  }
-
-   .offers-section .swiper-slide{
-    width: 45% !important;
-  }
-
-  .line {
-    font-size: 20px;
-    font-weight: 600;
-    color: var(--hero-text-color);
-    text-align: right !important;
-    width: 100%;
-    margin-bottom: 15px;
-  }
-
-  .offers-section .card {
-    /* width: 65vw; */
-    max-width: 400px;
-    padding: 20px;
-    margin: 10px ;
-  }
-
-  .offers-section .mySwiper {
-    width: 100%;
-    margin-left: 0;
-  }
-
-  .offers-section {
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin: 40px 0 !important;
-  }
-
-  .section-container-offers .sectionfooter {
-    justify-content: center;
-    text-align: center;
-    margin-top: 0 !important;
-  }
-    .section-container-offers .sectionfooter{
-justify-self: end;
-  }
-
-}
 @media (max-width: 1280px) {
-    .offers-section .swiper-slide{
-    width: 40% !important;
-  }
-.offerline{
-  width: 280px;
-  height: 280px;
-}
-.line {
-    font-size: 30px;
-    font-weight: 700;
-  }
-
-}
-
-@media (max-width: 1024px) {
-    .offers-section .swiper-slide{
-    width: 53% !important;
-  }
-.offerline{
-  width: 260px;
-  height: 260px;
-}
-.line {
-    font-size: 30px;
-    font-weight: 700;
-  }
-
-}
-
-@media (max-width: 992px) {
-    .offers-section .swiper-slide{
-    width: 75% !important;
-  }
-.offerline{
-  width: 250px;
-  height: 250px;
-}
-.line {
-    font-size: 30px;
-    font-weight: 700;
-  }
-
-
-}
-
-@media (max-width: 914px) {
-    .offers-section .swiper-slide{
-    width: 65% !important;
-  }
-.offerline{
-  width: 250px;
-  height: 250px;
-}
-.line {
-    font-size: 28px;
-    font-weight: 700;
-  }
-
-
-}
-@media (max-width: 855px) {
-    .offers-section .swiper-slide{
-    width: 70% !important;
-  }
-  
-}
-
-
-@media (max-width: 822px) {
-    .offers-section .swiper-slide{
-    width: 75% !important;
-  }
-.offerline{
-  width: 250px;
-  height: 250px;
-}
-.line {
-    font-size: 30px;
-    font-weight: 700;
-  }
-
-
-}
-
-@media (max-width: 768px) {
-     .offers-section .swiper-slide{
-    width: 46% !important;
-  }
   .offerline {
-    background: none;
-    height: auto;
-    width: 100%;
-    margin: 0;
-    text-align: right;
-    justify-content: flex-start;
-    padding: 0 10px;
+    width: 260px;
+    height: 260px;
   }
+
   .line {
-    font-size: 28px;
-    font-weight: 650;
-    color: var(--hero-text-color);
-    text-align: right !important;
-    width: 100%;
-    margin-bottom: 25px;
-  }
-}
-@media (max-width: 766px) {
-  .offerline {
-    background: none;
-    height: auto;
-    width: 100%;
-    margin: 0;
-    text-align: right;
-    justify-content: flex-start;
-    padding: 0 10px;
+    font-size: 32px;
   }
 
-   .offers-section .swiper-slide{
-    width: 85% !important;
+  .offers-section {
+    justify-content: center;
+    gap: 20px;
+  }
+   .offers-section .mySwiper {
+    width: 100%;
+    overflow-x: auto;
+    padding-bottom: 10px;
+  }
+
+  .offers-section .swiper-wrapper {
+    display: flex;
+    gap: 15px;
+  }
+
+  .offers-section .swiper-slide {
+    width: auto !important;
+    flex-shrink: 0;
+  }
+
+  .offers-section .card {
+    width: 275px; 
+  }
+
+}
+
+/* 🎯 تحسين العرض في الشاشات الصغيرة */
+@media (max-width: 768px) {
+  .offers-section {
+    flex-direction: column;
+   
+    margin: 40px 0 !important;
+  }
+
+  .offerline {
+    background: none;
+    width: 100%;
+    height: auto;
+    justify-content: flex-start;
+    padding: 0 10px;
+    margin: 0 0 20px 0;
+  }
+
+  .line {
+    font-size: 22px;
+    font-weight: 700;
+    text-align: right;
+    width: 100%;
+  }
+
+  /* 📱 خلى السلايدر كأنه سكروول أفقي */
+  .offers-section .mySwiper {
+    width: 90%;
+    overflow-x: auto;
+    padding-bottom: 10px;
+  }
+
+  .offers-section .swiper-wrapper {
+    display: flex;
+    gap: 15px;
+  }
+
+  .offers-section .swiper-slide {
+    width: auto !important; /* خلى العرض ياخد حجم الكارد الأصلي */
+    flex-shrink: 0;
+  }
+
+  .offers-section .card {
+    width: 275px; /* نفس الحجم الأصلي */
+  }
+
+  .section-container-offers .sectionfooter {
+    justify-content: end;
+    margin-top: 20px !important;
+  }
+}
+
+/* 📱 الشاشات الصغيرة جدًا */
+@media (max-width: 480px) {
+  .offers-section .card {
+    width: 275px;
   }
 
   .line {
     font-size: 20px;
-    font-weight: 600;
-    color: var(--hero-text-color);
-    text-align: right !important;
-    width: 100%;
-    margin-bottom: 15px;
   }
-
-  .offers-section .card {
-    /* width: 65vw; */
-    max-width: 400px;
-    padding: 20px;
-    margin: 10px ;
-  }
-
-  .offers-section .mySwiper {
-    width: 100%;
-    margin-left: 0;
-  }
-
-  .offers-section {
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin: 40px 0 !important;
-  }
-
-  .section-container-offers .sectionfooter {
-    justify-content: center;
-    text-align: center;
-    margin-top: 0 !important;
-  }
-    .section-container-offers .sectionfooter{
-justify-self: end;
-  }
-}
-
-@media (max-width: 542px){
-     .offers-section .swiper-slide{
-    width: 65% !important;
-  }
-
- 
-}
-
-@media (max-width: 392px){
-     .offers-section .swiper-slide{
-    width: 91% !important;
-  }
-
-  
-  .section-container-offers .sectionfooter {
-    width: 100%;
-    justify-content: end !important;
-    text-align: right;
-    margin-top: 0 !important;
-  }
-}
-
-@media (max-width: 370px){
-     .offers-section .swiper-slide{
-    width: 95% !important;
-  }
-
 }

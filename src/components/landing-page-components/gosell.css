@@ -130,7 +130,7 @@ html {
   background-size:auto;
   background-repeat: no-repeat;
   background-position: top;
-  height: 100vh;
+  height: 50vh;
   width: 100vw;
   display: flex;
   margin: auto;
@@ -151,13 +151,38 @@ html {
     font-size: 16px;
   }
 }
+@media (max-width: 1280px) {
 
+  .go-sell-section {
+  background-image: url(../../../public/imgs/section-cover2.png);
+  background-size:auto;
+  background-repeat: no-repeat;
+  background-position: top;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  margin: auto;
+  margin-top: -50px;
+}
+}
 
 @media (max-width: 992px) {
 
-    .go-sell-section{
+    /* .go-sell-section{
       margin-top: -150px;
-    }
+    } */
+
+  .go-sell-section {
+  background-image: url(../../../public/imgs/section-cover2.png);
+  background-size:auto;
+  background-repeat: no-repeat;
+  background-position: top;
+  height: 65vh;
+  width: 100vw;
+  display: flex;
+  margin: auto;
+  margin-top: -50px;
+}
   .go-sell-section .leftside {
     margin-left: 100px;
     width: 60%;

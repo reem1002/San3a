@@ -48,14 +48,12 @@ export default function Offers() {
                     navigation
                     className="mySwiper"
                     breakpoints={{
-                        breakpoint: 920,
-                        settings: {
-                            slidesToShow: 2,
-                        },
-                        760: {
-                            slidesPerView: 3,
-                        },
+                        1280: { slidesPerView: 3 },
+                        1024: { slidesPerView: 1.8 },
+                        768: { slidesPerView: 1.5 },
+                        480: { slidesPerView: 1.2 },
                     }}
+
                 >
                     {discountedProducts.map((product, index) => (
                         <SwiperSlide key={index}>

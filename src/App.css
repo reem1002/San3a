@@ -6,6 +6,7 @@ body {
   background-color: var(--main_background);
   /* padding-top: 60px; */
   overflow-x: hidden !important;
+  overflow-y: auto !important;
 }
 
 /* .App {
@@ -24,6 +25,20 @@ body {
   border: #000 solid 1px;
   background-color: #fff;
   border-radius: 3px;
+}
+
+
+@media (max-width: 1280px) {
+  /* إخفاء شكل السكرول في الشاشات الصغيرة */
+  ::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* للمتصفحات اللي مش WebKit زي Firefox */
+  body {
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* Internet Explorer و Edge القديم */
+  }
 }
 
 @media (max-width: 768px) {
