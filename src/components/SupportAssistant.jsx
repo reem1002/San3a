@@ -10,7 +10,7 @@ export default function SupportAssistant() {
         const interval = setInterval(() => {
             setShowMessage(true);
             setTimeout(() => setShowMessage(false), 3000);
-        }, 60000);
+        }, 30000);
         return () => clearInterval(interval);
     }, []);
 
@@ -43,7 +43,7 @@ export default function SupportAssistant() {
                 <div className="assistant-overlay" onClick={() => setShowModal(false)}>
                     <div className="assistant-modal" onClick={(e) => e.stopPropagation()}>
                         <h4>هل ترغب في التحدث عبر واتساب؟</h4>
-                        <p>سيتم فتح محادثة تلقائيًا، فقط اضغط "نعم"</p>
+                        <p>سيتم فتح محادثة تلقائيًا، فقط اضغط نعم</p>
                         <div className="assistant-buttons">
                             <button className="yes-btn" onClick={handleConfirm}>نعم</button>
                             <button className="no-btn" onClick={() => setShowModal(false)}>إلغاء</button>
