@@ -11,6 +11,7 @@ import AppLoader from "./pages/AppLoader";
 import "./App.css";
 import SupportAssistant from './components/SupportAssistant'
 import NotFound from "./pages/NotFound";
+import AboutUs from './pages/AboutUs'
 
 function App() {
   const [showLoader, setShowLoader] = useState(true);
@@ -34,6 +35,7 @@ function App() {
         <Route path="/product/:id" element={<ProductPage />} />
         <Route path="/cart" element={<CartPage />} />
         <Route path="*" element={<NotFound />} />
+        <Route path="/about" element={<AboutUs />} />
       </Routes>
       <Footer />
     </div>

@@ -41,7 +41,7 @@
 }
 
 .assistant-container:hover .assistant-img {
-  content: url("../../public/imgs/helper_flower.png.png"); /* ← دي الصورة التانية */
+  content: url("../../public/imgs/helper_flower.png"); /* ← دي الصورة التانية */
   transform: scale(1.1);
 }
 

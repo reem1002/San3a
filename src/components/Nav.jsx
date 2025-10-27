@@ -4,27 +4,31 @@ import { useDispatch, useSelector } from "react-redux";
 import { setSearchTerm, applyFilters } from "../redux/productsSlice";
 import { toggleFavorite } from "../redux/favoritesSlice";
 import "./Nav.css";
-import { FaRegHeart, FaTrashAlt, FaOpencart } from "react-icons/fa";
-import { FaBars, FaTimes } from "react-icons/fa";
-import { FiMenu, FiX } from "react-icons/fi";
-
-
+import {
+    Heart,
+    Trash2,
+    ShoppingCart,
+    Home,
+    Store,
+    Users,
+    Search,
+    Menu,
+    X,
+} from "lucide-react";
 
 export default function Nav() {
     const [searchValue, setSearchValue] = useState("");
     const [showFavDropdown, setShowFavDropdown] = useState(false);
     const [showCartDropdown, setShowCartDropdown] = useState(false);
+    const [menuOpen, setMenuOpen] = useState(false);
+
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const location = useLocation();
-    const [menuOpen, setMenuOpen] = useState(false);
-
     const favorites = useSelector((state) => state.favorites.favorites);
     const cartItems = useSelector((state) => state.cart.cartItems);
-
     const favRef = useRef(null);
 
-    // 🔹 البحث
     const handleSearchClick = () => {
         if (searchValue.trim() === "") {
             dispatch(setSearchTerm(""));
@@ -50,7 +54,6 @@ export default function Nav() {
         return () => clearTimeout(delayDebounce);
     }, [searchValue, dispatch, navigate, location.pathname]);
 
-    // 🔹 المفضلة toggle + إغلاق عند الضغط خارجها
     const toggleFavDropdown = () => {
         setShowFavDropdown((prev) => !prev);
     };
@@ -84,25 +87,30 @@ export default function Nav() {
     return (
         <div className="nav-bar shadow-sm">
             <div className="nav container">
-                <Link to="/" >
+                <Link to="/">
                     <img src="/imgs/logo.png" alt="Logo" className="logo" />
                 </Link>
 
-
-
                 <div className={`Navs_links ${menuOpen ? "open" : ""}`}>
-                    <Link to="/" className="nav-link" onClick={() => setMenuOpen(false)}>
-                        <img src="/imgs/home-icon.png" alt="Home" className="nav-link-img" />
-                    </Link>
-                    <Link to="/shop" className="nav-link" onClick={() => setMenuOpen(false)}>
-                        <img src="/imgs/shop icon.png" alt="Shop" className="nav-link-img" />
-                    </Link>
+                    <div className="links">
+                        <Link to="/" className="nav-link" onClick={() => setMenuOpen(false)}>
+                            <Home size={26} strokeWidth={1.5} color="#000" />
+                        </Link>
 
+                        <Link to="/shop" className="nav-link" onClick={() => setMenuOpen(false)}>
+                            <Store size={26} strokeWidth={1.5} color="#000" />
+                        </Link>
+
+                        <Link to="/about" className="nav-link" onClick={() => setMenuOpen(false)}>
+                            <Users size={26} strokeWidth={1.5} color="#000" />
+                        </Link>
+                    </div>
                     <div className="search">
-                        <img
-                            src="/imgs/search.png"
-                            alt="Search"
+                        <Search
                             className="search-icon"
+                            size={22}
+                            strokeWidth={1.5}
+                            color="#000"
                             onClick={handleSearchClick}
                         />
                         <input
@@ -114,18 +122,14 @@ export default function Nav() {
                     </div>
                 </div>
 
-
-
-
                 <div className="nav_user">
-                    {/* <img src="/imgs/notification.png" alt="Notifications" className="nav-link-img" /> */}
-
                     {/* ❤️ المفضلة */}
                     <div ref={favRef} className="fav-icon-wrapper">
-                        <FaRegHeart
+                        <Heart
                             className="fav-icon"
                             size={26}
-                            color="#333"
+                            strokeWidth={1.5}
+                            color="#000"
                             onClick={toggleFavDropdown}
                         />
                         {favorites.length > 0 && (
@@ -156,8 +160,10 @@ export default function Nav() {
                                                 </p>
                                                 <span className="fav-price">{item.price} ج.م</span>
                                             </div>
-                                            <FaTrashAlt
+                                            <Trash2
                                                 className="fav-delete"
+                                                size={20}
+                                                strokeWidth={1.5}
                                                 onClick={(e) => handleRemoveFavorite(item, e)}
                                             />
                                         </div>
@@ -174,7 +180,12 @@ export default function Nav() {
                         onMouseLeave={() => setShowCartDropdown(false)}
                         onClick={goToCart}
                     >
-                        <FaOpencart className="fav-icon" size={25} color="#333" />
+                        <ShoppingCart
+                            className="fav-icon"
+                            size={26}
+                            strokeWidth={1.5}
+                            color="#000"
+                        />
                         {cartItems.length > 0 && (
                             <span className="fav-count">{cartItems.length}</span>
                         )}
@@ -224,16 +235,16 @@ export default function Nav() {
                             </div>
                         )}
                     </div>
+
+                    {/* القائمة الجانبية */}
                     <div className="menu-icon" onClick={() => setMenuOpen(!menuOpen)}>
-                        {menuOpen ? <FiX size={24} /> : <FiMenu size={24} />}
+                        {menuOpen ? (
+                            <X size={26} strokeWidth={1.5} color="#000" />
+                        ) : (
+                            <Menu size={26} strokeWidth={1.5} color="#000" />
+                        )}
                     </div>
-
                 </div>
-
-                {/* <div className="nav_account">
-                    <img src="/imgs/account.png" alt="User" className="user-icon" />
-                    <img src="/imgs/down-line.png" alt="Dropdown" className="arrow-icon" />
-                </div> */}
             </div>
         </div>
     );
