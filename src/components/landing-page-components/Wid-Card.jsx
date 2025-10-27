@@ -34,7 +34,7 @@ const ProductCard = ({
         navigate(`/product/${id}`);
     };
 
-  
+
     const handleFavClick = (e) => {
         e.stopPropagation();
         dispatch(toggleFavorite({ id, name, image, price, seller, craft }));
