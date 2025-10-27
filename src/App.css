@@ -27,6 +27,12 @@ body {
   border-radius: 3px;
 }
 
+img {
+  user-select: none;
+  -webkit-user-drag: none;
+  -webkit-touch-callout: none;
+  pointer-events: auto;
+}
 
 @media (max-width: 1368px) {
   /* إخفاء شكل السكرول في الشاشات الصغيرة */
