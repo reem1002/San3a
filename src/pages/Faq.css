@@ -47,6 +47,7 @@
   color: var(--hero-text-color);
   font-size: 1.2rem;
   margin: 0;
+  font-weight: 700;
 }
 
 .faq-select {
@@ -151,5 +152,24 @@
 
   .faq-container {
     width: 90%;
+  }
+}
+@media (max-width: 480px) {
+  .faq-header h3 {
+    font-size: 1rem;
+  }
+
+  .faq-select {
+    font-size: 0.85rem;
+    padding: 6px 14px;
+  }
+
+  .faq-question {
+    font-size: 0.95rem;
+    padding: 12px 5px;
+  }
+
+  .faq-answer p {
+    font-size: 0.9rem;
   }
 }
