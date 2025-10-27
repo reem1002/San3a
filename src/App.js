@@ -22,9 +22,10 @@ function App() {
 
   return (
     <div className="App fade-in">
-      <ScrollToTop />
+
       <SupportAssistant />
       <Nav />
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/shop" element={<ShopingPage />} />

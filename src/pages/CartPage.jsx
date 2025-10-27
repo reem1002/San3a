@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+
 import { useSelector, useDispatch } from "react-redux";
 import { removeFromCart, updateQuantity, clearCart } from "../redux/cartSlice";
 import { Link } from "react-router-dom";
@@ -10,6 +11,11 @@ export default function CartPage() {
     const dispatch = useDispatch();
     const cartItems = useSelector((state) => state.cart.cartItems);
     const [showForm, setShowForm] = useState(false);
+
+    // ✅ كل مرة تدخل الصفحة تبدأ من فوق
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
 
     const handleQuantityChange = (id, value) => {
         const qty = parseInt(value);
@@ -33,7 +39,7 @@ export default function CartPage() {
 
     const handleOpenForm = () => {
         setShowForm(true);
-        document.body.style.overflow = "hidden"; // منع التمرير أثناء ظهور الفورم
+        document.body.style.overflow = "hidden";
     };
 
     const handleCloseForm = () => {
