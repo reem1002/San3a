@@ -86,6 +86,16 @@
     align-self: flex-start;
   }
 }
+@media (max-width: 992px) {
+  .go-sell-section {
+    margin-top: 50px !important;
+  }
+   .go-sell-section .sell-line {
+    font-size: 28px;
+    font-weight: 700;
+  }
+
+}
 
 
 @media (max-width: 768px) {

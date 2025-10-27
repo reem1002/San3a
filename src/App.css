@@ -28,7 +28,7 @@ body {
 }
 
 
-@media (max-width: 1280px) {
+@media (max-width: 1368px) {
   /* إخفاء شكل السكرول في الشاشات الصغيرة */
   ::-webkit-scrollbar {
     display: none;

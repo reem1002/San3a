@@ -96,3 +96,37 @@ body {
     opacity: 1;
   }
 }
+
+
+@media (max-width: 768px) {
+  .app-loader {
+    padding: 0 1.8rem; 
+  }
+
+  .app-loader .logo {
+    width: 100px; 
+    margin-bottom: 1rem;
+  }
+
+  .loader-text {
+    font-size: 1.1rem; 
+    line-height: 1.6;
+  }
+
+  .cursor {
+    width: 4px;
+    height: 18px;
+  }
+/* 
+  .loading-dots {
+    gap: 4px;
+    margin-top: 1rem;
+  }
+
+  .loading-dots span {
+    width: 8px;
+    height: 8px;
+  } */
+}
+
+

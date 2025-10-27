@@ -78,7 +78,7 @@
   .shoping-page-container .cards-display.full-width {
     grid-template-columns: repeat(1, 1fr);
     gap: 1rem;
-    width: 320px;
+    /* width: 320px; */
     
   }
 

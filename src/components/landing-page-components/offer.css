@@ -90,7 +90,7 @@
   justify-content: right;
 }
 
-@media (max-width: 1280px) {
+@media (max-width: 1368px) {
   .offerline {
     width: 260px;
     height: 260px;

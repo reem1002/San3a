@@ -28,6 +28,19 @@
 }
 
 /* 💻 من 1024 */
+@media (max-width: 1368px) {
+  .new-sec-con .cards-display {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin: auto;
+    margin-left: 80px;
+  }
+
+  .section-title {
+    font-size: 24px;
+    font-weight: 700;
+  }
+}
 @media (max-width: 1024px) {
   .new-sec-con .cards-display {
     grid-template-columns: repeat(2, 1fr);
@@ -41,7 +54,6 @@
     font-weight: 700;
   }
 }
-
 /* 💻 من 992 */
 @media (max-width: 992px) {
   .new-sec-con .cards-display {
@@ -71,8 +83,9 @@
   }
 
   .new-sec-con .cards-display > * {
-    flex: 0 0 80% !important;
+    flex: 0 0 55% !important;
     scroll-snap-align: start;
+    margin: auto !important;
   }
 
   .section-title {
@@ -86,14 +99,14 @@
 }
 @media (max-width: 542px) {
     .new-sec-con .cards-display > * {
-        flex: 0 0 65% !important;
+        flex: 0 0 62% !important;
         scroll-snap-align: start;
     }
   }
-/* 📱 الشاشات الصغيرة جدًا */
+
 @media (max-width: 480px) {
   .new-sec-con .cards-display > * {
-    flex: 0 0 90% !important;
+    flex: 0 0 95% !important;
   }
 
   .section-title {
