@@ -10,6 +10,8 @@ import CartPage from "./pages/CartPage";
 import AppLoader from "./pages/AppLoader";
 import "./App.css";
 import SupportAssistant from './components/SupportAssistant'
+import NotFound from "./pages/NotFound";
+
 function App() {
   const [showLoader, setShowLoader] = useState(true);
 
@@ -31,6 +33,7 @@ function App() {
         <Route path="/shop" element={<ShopingPage />} />
         <Route path="/product/:id" element={<ProductPage />} />
         <Route path="/cart" element={<CartPage />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
     </div>

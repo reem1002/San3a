@@ -58,7 +58,7 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    min-height: 400px;
+    min-height: 75dvh;
     text-align: center;
     padding: 3rem;
     direction: rtl;

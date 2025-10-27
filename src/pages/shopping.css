@@ -127,9 +127,15 @@
     /* width: 320px; */
 
     min-width: 320px;
+    margin: auto !important;
     
   }
-
+ .shoping-page-container .shop-content .cards-display.with-sidebar .card,
+  .shoping-page-container .cards-display.full-width .card{
+    
+    margin: auto !important;
+    
+  }
   .shoping-page-container .shop-content .cards-display.with-sidebar .card{
     min-height:  400px;
 

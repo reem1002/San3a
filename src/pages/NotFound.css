@@ -1,0 +1,118 @@
+:root {
+  --hero-background: #f8f0df;
+  --hero-text-color: #6a3c0a;
+  --button-background: #c0e399;
+  --lable-background: #f8afb5;
+  --button-hover: #a8d88c;
+  --brown-hover: #462707;
+  --button-cart: #C0E399;
+  --inner: #F1E8D3;
+}
+.notfound-container {
+  min-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+}
+
+.cat-wrapper {
+  width: 220px;
+  height: 220px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  overflow: hidden; /* يخلي الصورة تتقص جوّا الدايرة */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+  margin-bottom: 20px;
+}
+
+/* .cat-img {
+  width: 100%;
+  height: auto;
+  animation: floatCat 3s ease-in-out infinite;
+  filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.2));
+  
+  border-radius: 120px;
+  
+} */
+
+.cat-img {
+  width: 100%;
+height: 100%;
+  object-fit: cover; 
+  border-radius: 50%;
+  border-radius: 120px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cat-img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.35);
+}
+
+
+/* @keyframes floatCat {
+  0% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(2deg);
+  }
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+} */
+
+.notfound-title {
+  font-size: 1.8rem;
+  color: #3a2a10;
+  margin-top: 20px;
+  font-weight: bold;
+}
+
+.notfound-text {
+  color: #6b5535;
+  margin: 10px 0 20px;
+  font-size: 1rem;
+}
+
+.back-home-btn {
+  background-color: var(--button-background);
+  color: #3a2a10;
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 25px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.back-home-btn:hover {
+  background-color: var(--button-hover);
+  transform: scale(1.05);
+}
+
+
+@media (max-width: 600px) {
+  .cat-wrapper {
+    width: 160px;
+    height: 160px;
+  }
+
+  .notfound-title {
+    font-size: 1.4rem;
+  }
+
+  .notfound-text {
+    font-size: 0.9rem;
+  }
+
+  .back-home-btn {
+    font-size: 0.9rem;
+    padding: 8px 16px;
+  }
+}
