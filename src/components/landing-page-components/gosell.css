@@ -1,148 +1,214 @@
-.go-sell-section {
-  background-image: url(../../../public/imgs/section-cover2.png);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: top right; 
-  height: 100vh;
+.go-sell-container {
+  position: relative;
   width: 100%;
+  min-height: 70vh; /* ارتفاع مرن ومناسب */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background-color: var(--main_background);
+  padding: 2rem 0;
+}
+
+/* الصور المحيطة */
+.left-img,
+.right-img,
+.top-img {
+  position: absolute;
+  z-index: 0;
+  max-width: 250px;
+}
+
+.left-img {
+  left: 0;
+  bottom: 0;
+}
+
+.right-img {
+  right: 0;
+  bottom: 0;
+}
+
+.bottom-img {
+  display:none;
+}
+
+.top-img {
+  right: 25%;
+  top: 5%;
+}
+
+/* المحتوى الرئيسي */
+.go-sell-section {
+  position: relative;
+  z-index: 2;
+  width: 80%;
+  max-width: 1100px;
   display: flex;
   align-items: center;
   justify-content: flex-start;
   padding-inline: 5%;
-  position: relative;
 }
 
 .go-sell-section .leftside {
-  width: 60%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   gap: 20px;
-  /* text-align: right; */
-  margin-left: 160px;
+  text-align: left;
 }
 
-.go-sell-section .sell-line {
-  font-size: 38px;
-  font-weight: 800;
+.sell-line {
+  font-size: 36px;
+  font-weight: 700;
   color: var(--hero-text-color);
 }
 
-.go-sell-section .sell-btn {
+.sell-btn {
   font-size: 18px;
   color: var(--hero-text-color);
   background: transparent;
   border: none;
   align-self: flex-start;
+  cursor: pointer;
   transition: all 0.3s ease;
 }
 
-.go-sell-section .sell-btn:hover {
+.sell-btn:hover {
   color: var(--brown-hover);
   transform: scale(1.05);
 }
 
-
-@media (max-width: 1280px) {
-  .go-sell-section {
-    background-position: center right;
-    height: 90vh;
-    padding-inline: 10%;
-    margin: 0 !important;
-  }
-
-  .go-sell-section .leftside {
-    width: 50%;
-  }
-
-  .go-sell-section .sell-line {
-    font-size: 32px;
-  }
+/* ===== المودال ===== */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
 }
+
+.modal-box {
+  background: #fff;
+  padding: 25px 30px;
+  border-radius: 12px;
+  text-align: center;
+  max-width: 400px;
+  width: 90%;
+  
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+.confirm-btn,
+.cancel-btn {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.confirm-btn {
+  background-color: var(--button-background);
+  color: #000;
+}
+
+.cancel-btn {
+  background-color: #ddd;
+}
+
 
 
 @media (max-width: 1024px) {
+  .go-sell-container {
+    min-height: 75vh;
+  }
+
+  .sell-line {
+    font-size: 28px;
+ 
+  }
+
+  .right-img {
+    display: none;
+  }
+
+ 
+
+  .top-img {
+    max-width: 300px;
+    right: -50px;
+    top: 0;
+  }
+
   .go-sell-section {
-    background-position: center;
-    background-size: cover;
-    height: 80vh;
     justify-content: center;
-    text-align: center;
-  }
-
-  .go-sell-section .leftside {
-    width: 60%;
-    text-align: left;
-    margin: 0 !important;
-  }
-
-  .go-sell-section .sell-line {
-    font-size: 30px;
-    font-weight: 700;
-  }
-
-  .go-sell-section .sell-btn {
-   font-size: 15px;
-    align-self: flex-start;
   }
 }
 @media (max-width: 992px) {
-  .go-sell-section {
-    margin-top: 50px !important;
+  .go-sell-container {
+    min-height: 60dvh;
   }
-   .go-sell-section .sell-line {
+
+  .sell-line {
     font-size: 28px;
-    font-weight: 700;
+    font-weight: 600;
+    
   }
 
-}
+  .left-img,
+  .right-img {
+    display: none;
+  }
+
+  .top-img {
+    max-width: 300px;
+    right: -40px;
+    top: 0;
+  }
 
 
-@media (max-width: 768px) {
+  .bottom-img {
+    position: absolute;
+    display: block;
+    bottom: 0;
+    max-width: 500px;
+    right: 50px;
+  }
   .go-sell-section {
-    flex-direction: column;
     justify-content: center;
-    align-items: center;
-    height: 75vh;
-    background-position: center;
-  }
-
-  .go-sell-section .leftside {
-    width: 60%;
-    text-align: left;
-    margin: 0 !important;
-  }
-
-  .go-sell-section .sell-line {
-    font-size: 26px;
-    font-weight: 700;
-  }
-   .go-sell-section .sell-btn {
-    font-size: 15px;
-    align-self: flex-start;
   }
 }
-
 
 @media (max-width: 480px) {
-  .go-sell-section {
-    height: 65vh;
-    background-position: center top;
-    padding-inline: 20px;
+  .go-sell-container {
+    min-height: 60dvh;
+    padding: 1rem 0;
   }
 
-  .go-sell-section .leftside {
-    width: 80%;
-    text-align: left;
-  }
-
-  .go-sell-section .sell-line {
+  .sell-line {
     font-size: 22px;
-    font-weight: 650;
+    font-weight: 600;
   }
 
-  .go-sell-section .sell-btn {
+  .sell-btn {
     font-size: 14px;
-    align-self: flex-start;
+  }
+
+  .top-img {
+    max-width: 220px;
+    right: -50px;
+    top: 0;
+  }
+
+
+  .bottom-img {
+    max-width: 350px;
+    right: 0;
   }
 }

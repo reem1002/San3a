@@ -9,6 +9,46 @@
   --button-cart: #C0E399;
   --inner: #F1E8D3;
 }
+.cart-page{
+  position: relative;
+  margin: 50px 0;
+}
+
+.egp-decor{
+  max-width: 120px;
+  position: absolute;
+  top: -30px;
+  left:80px;
+}
+
+.flower-decor{
+  max-width: 200px;
+  position: absolute;
+  bottom: -50px;
+  right:80px;
+}
+@keyframes gentleFloat {
+  0% {
+    transform: rotate(0deg) translateY(0);
+  }
+  50% {
+    transform: rotate(3deg) translateY(-5px);
+  }
+  100% {
+    transform: rotate(0deg) translateY(0);
+  }
+}
+
+.egp-decor {
+   will-change: transform;
+  animation: gentleFloat 4.5s ease-in-out infinite;
+}
+
+.flower-decor {
+   will-change: transform;
+  animation: gentleFloat 5s ease-in-out infinite reverse;
+}
+
 
 .cart-empty {
     display: flex;
@@ -157,18 +197,57 @@
     font-style: italic;
 }
 
+
+
+@media (max-width: 1024px) {
+  .cart-page{
+    min-height: 800px;
+  }
+.top-section{
+  gap:0;
+  margin-left: 21px;
+}
+.details-section {
+  width: 70%;
+}
+
+   .egp-decor{
+  max-width: 120px;
+  left: 50px;
+}
+
+.flower-decor{
+  max-width: 220px;
+  position: absolute;
+  bottom: -85px;
+  right:0px;
+  z-index: 1;
+}
+
+}
 @media (max-width: 992px) {
-        .cart-page h3{
-            margin-top: 20px;
-        }
   .cart-table {
     width: 95%;
   }
+   .egp-decor{
+  max-width: 80px;
+  left: 50px;
+}
+
+.flower-decor{
+  max-width: 180px;
+  position: absolute;
+  bottom: -85px;
+  right:0px;
+  z-index: 1;
+}
+ 
 }
 
 @media (max-width: 768px) {
   .cart-page {
     padding: 1rem;
+    min-height: 600px;
   }
 
   .cart-table {
@@ -186,9 +265,7 @@
     font-size: 13px;
   }
 
-  .cart-buttons {
-   margin-bottom: 25px;
-  }
+  
 
   .pay-proceed,
   .clear-btn {
@@ -199,21 +276,14 @@
   .clear-btn {
     font-size: 15px;
     height: 42px;
+    
   }
   .product-info{
     margin-top: 15px;
   }
-}
-@media (max-width: 1024px) {
-.top-section{
-  gap:0;
-  margin-left: 21px;
-}
-.details-section {
-  width: 70%;
+ 
 }
 
-}
 @media (max-width: 600px) {
   .top-section{
   gap:0;
@@ -234,11 +304,10 @@
   .cart-buttons {
     flex-direction: column;
   }
+    .clear-btn{
+    margin-bottom: 100px;
+   }
 
- 
-  .clear-btn {
-   margin-bottom: 50px;
-  }
 
   .whatsapp-info {
     font-size: 0.8rem;
@@ -246,9 +315,22 @@
 }
 
 @media (max-width: 480px) {
-  .product-page{
+
+  .egp-decor{
+  display: none;
+}
+
+.flower-decor{
+  max-width: 160px;
+  position: absolute;
+  bottom: -85px;
+  right:0px;
+  z-index: 1;
+}
+
+  .cart-page{
     justify-content: center !important;
-    margin: auto !important;
+    margin: 0 auto!important;
     
   }
   .cart-page h3 {

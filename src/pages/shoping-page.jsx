@@ -13,6 +13,8 @@ const ShopingPage = () => {
 
     return (
         <div className="shoping-page-container">
+            <img src="/imgs/basket.png" alt="hero" className='basket-decor' />
+
             {/* <FiltersSidebar /> */}
             <ShopProducts />
         </div>

@@ -55,6 +55,8 @@ export default function ProductPage() {
 
     return (
         <div className="product-page">
+            <img src="/imgs/macas.png" alt="hero" className='macas-decor' />
+            <img src="/imgs/needle.png" alt="hero" className='needle-decor' />
             <div className="top-section">
                 {/* الصور */}
                 <div className="product-images">

@@ -2,6 +2,8 @@
     padding: 60px 0;
     display: flex;
     justify-content: space-evenly;
+    margin-bottom: 80px;
+    position: relative;
 }
 
 /* .shoping-page-container .cards-display {
@@ -17,6 +19,33 @@
 
   
 }
+
+
+
+.basket-decor{
+  max-width: 250px;
+  position: absolute;
+  bottom: -180px;
+  right:80px;
+  z-index: 2;
+}
+@keyframes gentleFloat {
+  0% {
+    transform: rotate(0deg) translateY(0);
+  }
+  50% {
+    transform: rotate(3deg) translateY(-5px);
+  }
+  100% {
+    transform: rotate(0deg) translateY(0);
+  }
+}
+
+.basket-decor {
+    will-change: transform;
+  animation: gentleFloat 4.5s ease-in-out infinite;
+}
+
 
 
 .shoping-page-container .shop-content .cards-display.with-sidebar {
@@ -56,6 +85,15 @@
   color: var(--hero-text-color);
 }
 
+ @media (max-width: 1024px) {
+  .basket-decor{
+  max-width: 200px;
+  position: absolute;
+  bottom: -160px;
+  right:0px;
+  z-index: 2;
+}}
+
 
 @media (max-width: 992px) {
   .shoping-page-container .shop-content .cards-display.with-sidebar,
@@ -70,6 +108,13 @@
     min-height:  400px;
 
   }
+  .basket-decor{
+  max-width: 200px;
+  position: absolute;
+  bottom: -160px;
+  right:0px;
+  z-index: 2;
+}
 }
 
 
@@ -86,4 +131,30 @@
     min-height:  400px;
 
   }
+  .basket-decor{
+  max-width: 200px;
+  position: absolute;
+  bottom: -180px;
+  right:0px;
+  z-index: 2;
 }
+}
+
+
+ @media (max-width: 600px) {
+  .basket-decor{
+  max-width: 150px;
+  position: absolute;
+  bottom: -140px;
+  right:0px;
+  z-index: 2;
+}}
+
+ @media (max-width: 480px) {
+  .basket-decor{
+  max-width: 120px;
+  position: absolute;
+  bottom: -130px;
+  right:0px;
+  z-index: 2;
+}}

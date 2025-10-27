@@ -54,7 +54,11 @@ export default function CartPage() {
 
     return (
         <div className="cart-page">
+
             <h3> سلة المشتريات</h3>
+            <img src="/imgs/egp.png" alt="hero" className='egp-decor' />
+            <img src="/imgs/flower.png" alt="hero" className='flower-decor' />
+
             <table className="cart-table ">
                 <thead>
                     <tr>

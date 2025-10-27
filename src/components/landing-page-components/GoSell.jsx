@@ -13,16 +13,18 @@ export default function GoSell() {
     };
 
     return (
-        <div className='go-sell-container'>
-            <div className='go-sell-section'>
+        <section className="go-sell-container">
+            <img src="/imgs/section-cover22 1.png" alt="hero" className='right-img' />
+            <img src="/imgs/section-cover22 2.png" alt="hero" className='left-img' />
+            <img src="/imgs/section-cover22 3.png" alt="hero" className='bottom-img' />
+            <img src="/imgs/section-cover22 4.png" alt="hero" className='top-img' />
+
+            <div className="go-sell-section">
                 <div className="leftside">
                     <h4 className='sell-line'>
                         يمكنك أن تصبح واحدًا منهم اليوم
                     </h4>
-                    <button
-                        className='sell-btn'
-                        onClick={() => setShowModal(true)}
-                    >
+                    <button className='sell-btn' onClick={() => setShowModal(true)}>
                         &lt;&lt; اضغط هنا
                     </button>
                 </div>
@@ -44,6 +46,6 @@ export default function GoSell() {
                     </div>
                 </div>
             )}
-        </div>
+        </section>
     );
 }
