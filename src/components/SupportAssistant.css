@@ -1,0 +1,169 @@
+:root {
+  --main_background: #fefbf3;
+}
+.assistant-container {
+  position: fixed;
+  bottom: 25px;
+  left: 25px;
+  z-index: 999;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: var(--main_background);
+  border-radius: 180px;
+  /* border: 1px solid #000; */
+   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+   animation: assistantAppear 1s ease-out;
+}
+@keyframes assistantAppear {
+  0% {
+    opacity: 0;
+    transform: translateY(40px) scale(0.9);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(-5px) scale(1.05);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.assistant-img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+  animation: floaty 3.5s ease-in-out infinite;
+}
+
+.assistant-container:hover .assistant-img {
+  content: url("../../public/imgs/helper_flower.png.png"); /* ← دي الصورة التانية */
+  transform: scale(1.1);
+}
+
+
+.assistant-message {
+  background-color: white;
+  color: var(--hero-text-color);
+  font-size: 15px;
+  padding: 8px 14px;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  position: absolute;
+  bottom: 85px;
+  white-space: nowrap;
+  animation: fadeInOut 3s ease;
+}
+
+/* حركة الصورة */
+@keyframes floaty {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+  100% { transform: translateY(0); }
+}
+
+/* حركة الرسالة */
+@keyframes fadeInOut {
+  0% { opacity: 0; transform: translateY(10px); }
+  10%, 80% { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(-10px); }
+}
+
+/* مودال الدعم */
+.assistant-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.assistant-modal {
+  background: #fff;
+  padding: 25px 35px;
+  border-radius: 15px;
+  text-align: center;
+  max-width: 400px;
+  width: 90%;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+}
+
+.assistant-buttons {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+.yes-btn, .no-btn {
+  padding: 8px 18px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+.yes-btn {
+  background-color: var(--button-background);
+  color: #000;
+}
+
+.no-btn {
+  background-color: #ddd;
+  color: #333;
+}
+@media (max-width: 768px) {
+  .assistant-img {
+    width: 90px;
+    height: 90px;
+  }
+
+  .assistant-message {
+    font-size: 13px;
+    bottom: 70px;
+    padding: 6px 10px;
+  }
+
+  .assistant-modal {
+    padding: 20px 25px;
+    font-size: 14px;
+  }
+
+  .yes-btn, .no-btn {
+    font-size: 13px;
+    padding: 6px 14px;
+  }
+}
+
+/* 📱 أصغر شوية (موبايلات صغيرة جدًا) */
+@media (max-width: 480px) {
+  .assistant-container {
+    bottom: 15px;
+    left: 15px;
+  }
+
+  .assistant-img {
+    width: 70px;
+    height: 70px;
+  }
+
+  .assistant-message {
+    font-size: 12px;
+    bottom: 60px;
+  }
+
+  .assistant-modal {
+    max-width: 300px;
+    width: 85%;
+    padding: 18px 20px;
+  }
+
+  .yes-btn, .no-btn {
+    font-size: 12px;
+    padding: 5px 10px;
+  }
+}
