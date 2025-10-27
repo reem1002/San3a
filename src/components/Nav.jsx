@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { setSearchTerm, applyFilters } from "../redux/productsSlice";
 import { toggleFavorite } from "../redux/favoritesSlice";
 import "./Nav.css";
+import { HelpCircle } from "lucide-react";
+
 import {
     Heart,
     Trash2,
@@ -104,7 +106,13 @@ export default function Nav() {
                         <Link to="/about" className="nav-link" onClick={() => setMenuOpen(false)}>
                             <Users size={26} strokeWidth={1.5} color="#000" />
                         </Link>
+
+                        {/* 🆕 FAQ */}
+                        <Link to="/faq" className="nav-link" onClick={() => setMenuOpen(false)}>
+                            <HelpCircle size={26} strokeWidth={1.5} color="#000" />
+                        </Link>
                     </div>
+
                     <div className="search">
                         <Search
                             className="search-icon"
