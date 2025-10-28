@@ -1,3 +1,12 @@
+:root {
+  --hero-background: #f8f0df;
+  --hero-text-color: #6a3c0a;
+  --button-background: #c0e399;
+  --label-background: #f8afb5;
+  --brown-hover: #462707;
+}
+
+
 .go-sell-container {
   position: relative;
   width: 100%;
@@ -91,12 +100,25 @@
 
 .modal-box {
   background: #fff;
-  padding: 25px 30px;
+  padding:  30px;
   border-radius: 12px;
   text-align: center;
   max-width: 400px;
   width: 90%;
   
+}
+
+.modal-box h3 {
+  color: var(--hero-text-color);
+  margin-bottom: 25px;
+  font-size: 20px;
+  font-weight:600 ;
+}
+
+.modal-box p {
+  color: #555;
+  font-size: 15px;
+  margin-bottom: 20px;
 }
 
 .modal-buttons {

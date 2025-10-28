@@ -1,6 +1,7 @@
 :root {
   --main_background: #fefbf3;
 }
+
 body {
   font-family: "Kufam", sans-serif;
   background-color: var(--main_background);

@@ -1,7 +1,10 @@
 :root {
   --main_background: #fefbf3;
   --button-hover: #a8d88c;
+  --button-background: #c0e399; /* ضفتها لأنها مستخدمة في الأزرار */
 }
+
+/* الزر العائم للمساعد */
 .assistant-container {
   position: fixed;
   bottom: 25px;
@@ -13,10 +16,10 @@
   align-items: center;
   background: var(--main_background);
   border-radius: 180px;
-  /* border: 1px solid #000; */
-   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-   animation: assistantAppear 3s ease-out;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  animation: assistantAppear 3s ease-out;
 }
+
 @keyframes assistantAppear {
   0% {
     opacity: 0;
@@ -42,11 +45,11 @@
 }
 
 .assistant-container:hover .assistant-img {
-  content: url("../../public/imgs/helper_flower.png"); /* ← دي الصورة التانية */
+  content: url("../../public/imgs/helper_flower.png");
   transform: scale(1.1);
 }
 
-
+/* الرسالة الصغيرة */
 .assistant-message {
   background-color: white;
   color: var(--hero-text-color);
@@ -74,7 +77,7 @@
   100% { opacity: 0; transform: translateY(-10px); }
 }
 
-/* مودال الدعم */
+/* الخلفية الشفافة للمودال */
 .assistant-overlay {
   position: fixed;
   inset: 0;
@@ -85,6 +88,7 @@
   z-index: 1000;
 }
 
+/* تصميم المودال */
 .assistant-modal {
   background: #fff;
   padding: 25px 35px;
@@ -93,64 +97,113 @@
   max-width: 400px;
   width: 90%;
   box-shadow: 0 4px 20px rgba(0,0,0,0.15);
-  
+  animation: modalPop 0.3s ease-out;
 }
 
-.assistant-buttons {
-  display: flex;
-  justify-content: space-around;
-  margin-top: 20px;
+/* أنيميشن فتح المودال */
+@keyframes modalPop {
+  0% {
+    transform: scale(0.85);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 
-.yes-btn, .no-btn {
-  padding: 8px 18px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
+.assistant-modal h4 {
+  color: var(--hero-text-color);
+  margin-bottom: 10px;
+  font-size: 20px;
+  font-weight:600 ;
+}
+
+.assistant-modal p {
+  color: #555;
   font-size: 15px;
+  margin-bottom: 18px;
 }
 
-.yes-btn {
+/* الأزرار الجديدة */
+.assistant-options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.support-btn {
   background-color: var(--button-background);
   color: #000;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 10px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
 }
 
-.no-btn {
+.support-btn:hover {
+  background-color: var(--button-hover);
+  transform: scale(1.03);
+}
+
+/* زر FAQ بلون مختلف */
+.support-btn:nth-child(2) {
+  background-color: #f8afb5;
+}
+
+.support-btn:nth-child(2):hover {
+  background-color: #f7c4c9;
+}
+
+/* زر الإلغاء */
+.cancel-btn {
   background-color: #ddd;
   color: #333;
+  border: none;
+  padding: 9px 15px;
+  border-radius: 10px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
+.cancel-btn:hover {
+  background-color: #bbb;
+}
 
-
+/* اللودر */
 .global-loader {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(255, 255, 255, 0.8);
-    backdrop-filter: blur(3px);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(3px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
 }
-
 
 .spinner {
-    width: 60px;
-    height: 60px;
-    border: 5px solid var(--button-background); 
-    border-top: 5px solid var(--button-hover); 
-    border-radius: 50%;
-    animation: spin 0.8s linear infinite;
+  width: 60px;
+  height: 60px;
+  border: 5px solid var(--button-background);
+  border-top: 5px solid var(--button-hover);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
 }
 
 @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
+/* استجابة الموبايل */
 @media (max-width: 768px) {
   .assistant-img {
     width: 90px;
@@ -163,18 +216,21 @@
     padding: 6px 10px;
   }
 
-  /* .assistant-modal {
+  .assistant-modal {
     padding: 20px 25px;
-    font-size: 14px;
   }
 
-  .yes-btn, .no-btn {
+  .support-btn {
+    font-size: 14px;
+    padding: 8px 12px;
+  }
+
+  .cancel-btn {
     font-size: 13px;
-    padding: 6px 14px;
-  } */
+    padding: 7px 12px;
+  }
 }
 
-/* 📱 أصغر شوية (موبايلات صغيرة جدًا) */
 @media (max-width: 480px) {
   .assistant-container {
     bottom: 15px;
@@ -191,14 +247,19 @@
     bottom: 60px;
   }
 
-  /* .assistant-modal {
+  .assistant-modal {
     max-width: 300px;
     width: 85%;
     padding: 18px 20px;
   }
 
-  .yes-btn, .no-btn {
+  .support-btn {
+    font-size: 13px;
+    padding: 6px 10px;
+  }
+
+  .cancel-btn {
     font-size: 12px;
-    padding: 5px 10px;
-  } */
+    padding: 6px 10px;
+  }
 }

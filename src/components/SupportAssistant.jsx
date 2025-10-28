@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './SupportAssistant.css';
 
 export default function SupportAssistant() {
     const [showModal, setShowModal] = useState(false);
     const [showMessage, setShowMessage] = useState(false);
     const [loading, setLoading] = useState(true);
-
+    const navigate = useNavigate();
 
     useEffect(() => {
         const images = document.querySelectorAll("img");
@@ -38,11 +39,16 @@ export default function SupportAssistant() {
         return () => clearInterval(interval);
     }, []);
 
-    const handleConfirm = () => {
+    const handleWhatsApp = () => {
         window.open(
             "https://wa.me/201022391604?text=مرحبًا،%20أحتاج%20مساعدة%20بخصوص%20منصة%20صنعة.",
             "_blank"
         );
+        setShowModal(false);
+    };
+
+    const handleGoFAQ = () => {
+        navigate('/faq');
         setShowModal(false);
     };
 
@@ -53,7 +59,6 @@ export default function SupportAssistant() {
                     <div className="spinner"></div>
                 </div>
             )}
-
 
             <div className="assistant-container" onClick={() => setShowModal(true)}>
                 <img
@@ -68,15 +73,22 @@ export default function SupportAssistant() {
                 )}
             </div>
 
-
             {showModal && (
                 <div className="assistant-overlay" onClick={() => setShowModal(false)}>
                     <div className="assistant-modal" onClick={(e) => e.stopPropagation()}>
-                        <h4>هل ترغب في التحدث عبر واتساب؟</h4>
-                        <p>سيتم فتح محادثة تلقائيًا، فقط اضغط نعم</p>
-                        <div className="assistant-buttons">
-                            <button className="yes-btn" onClick={handleConfirm}>نعم</button>
-                            <button className="no-btn" onClick={() => setShowModal(false)}>إلغاء</button>
+                        <h4>كيف تحب نساعدك؟</h4>
+                        <p>اختر وسيلة الدعم المناسبة ليك：
+                        </p>
+                        <div className="assistant-options">
+                            <button className="support-btn" onClick={handleWhatsApp}>
+                                💬 التحدث عبر واتساب
+                            </button>
+                            <button className="support-btn" onClick={handleGoFAQ}>
+                                ❓ زيارة صفحة الأسئلة الشائعة
+                            </button>
+                            <button className="cancel-btn" onClick={() => setShowModal(false)}>
+                                إلغاء
+                            </button>
                         </div>
                     </div>
                 </div>
