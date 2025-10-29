@@ -1,18 +1,14 @@
-
-
-
-/* النص دايرة في الجنب */
 .circle-nav-container {
   position: fixed;
   left: -100px;
   top: 50%;
   transform: translateY(-50%);
   z-index: 10000;
-  padding: 100px; /* مسافة أمان حوالين الدايرة */
-  margin-left: -100px; /* نعادل تأثير البادينج على المكان */
+  padding: 100px; 
+  margin-left: -100px; 
 }
+   
 
-/* الزر نفسه */
 .circle-btn {
   width: 170px;
   height: 170px;
@@ -34,7 +30,7 @@
   transform: scale(1.1);
 }
 
-/* نبض خفيف */
+ 
 @keyframes pulse {
   0% {
     box-shadow: 0 0 0 0 rgba(192, 227, 153, 0.6);
@@ -47,7 +43,7 @@
   }
 }
 
-/* السهم المتحرك */
+ 
 .circle-arrow {
   position: absolute;
   right: 35px;
@@ -68,7 +64,7 @@
   }
 }
 
-/* الروابط */
+ 
 .circle-links {
   position: absolute;
   top: 43%;
@@ -100,7 +96,7 @@
   height: 55px;
 }
 
-/* ترتيب الروابط حول النص */
+
 .circle-nav-container.open .circle-link {
   opacity: 1;
   pointer-events: auto;
@@ -122,12 +118,7 @@
   transform: rotate(65deg) translate(100px) rotate(-65deg);
 }
 
-/* 💻 تصغير المقاسات تدريجيًا */
 
-/* من أول 1280px */
-
-
-/* من أول 1100px */
 @media (max-width: 1100px) {
   .circle-nav-container {
   left: -108px;
@@ -142,7 +133,6 @@
 }
 
 
-/* السهم المتحرك */
 .circle-arrow {
   position: absolute;
   right: 30px;
@@ -152,7 +142,7 @@
   filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.3));
 }
 
-/* الروابط */
+
 .circle-links {
   position: absolute;
   right: 38%;
@@ -167,14 +157,14 @@
 
 }
 .circle-btn {
-  z-index: 2; /* يخليها فوق أي لينك */
+  z-index: 2; 
 }
 
 .circle-links {
-  z-index: 1; /* الروابط تحت الزر */
+  z-index: 1; 
 }
 
-/* للموبايل */
+
 @media (max-width: 480px) {
   .circle-nav-container {
     display: none;

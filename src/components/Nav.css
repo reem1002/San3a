@@ -297,7 +297,9 @@ body {
     flex-direction: column;
     gap: 10px;
   }
-  
+  .nav_user{
+    gap: 15px;
+  }
   .Navs_links.open .nav-link {
     padding: 8px;
   }
@@ -318,8 +320,8 @@ body {
   width: 90%;
 }
 .fav-dropdown{
-    left: -20px;
-    width: 235px;
+    left: -10px;
+    width: 250px;
   }
   .fav-thumb{
     margin-right: 0;

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import "./circleNav.css"; // نستخدم نفس ملف CSS علشان يفضل الشكل زي ما هو
+import "./circleNav.css"; 
 
 export default function CircleNav() {
     const [circleOpen, setCircleOpen] = useState(false);
@@ -10,7 +10,6 @@ export default function CircleNav() {
         let enableTimeout;
 
         if (circleOpen) {
-            // ⏱ تفعيل الروابط بعد 0.3 ثانية
             enableTimeout = setTimeout(() => {
                 setLinksEnabled(true);
             }, 300);
@@ -24,8 +23,8 @@ export default function CircleNav() {
     return (
         <div
             className={`circle-nav-container ${circleOpen ? "open" : ""}`}
-            onMouseEnter={() => setCircleOpen(true)} // يفتح لما تدخل عليه بالماوس
-            onMouseLeave={() => setCircleOpen(false)} // يقفل لما تخرج من المنطقة كلها
+            onMouseEnter={() => setCircleOpen(true)} 
+            onMouseLeave={() => setCircleOpen(false)} 
         >
             <div
                 className="circle-btn"

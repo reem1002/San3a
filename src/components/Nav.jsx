@@ -109,49 +109,6 @@ export default function Nav() {
 
                     {/* 👤 أيقونات المستخدم */}
                     <div className="nav_user">
-                        {/* ❤️ المفضلة */}
-                        <div ref={favRef} className="fav-icon-wrapper">
-                            <Heart
-                                className="fav-icon"
-                                size={26}
-                                strokeWidth={1.5}
-                                color="#000"
-                                onClick={toggleFavDropdown}
-                            />
-                            {favorites.length > 0 && <span className="fav-count">{favorites.length}</span>}
-
-                            {showFavDropdown && (
-                                <div className="fav-dropdown">
-                                    {favorites.length === 0 ? (
-                                        <p className="empty-fav">لا توجد منتجات مفضلة بعد ❤️</p>
-                                    ) : (
-                                        favorites.map((item) => (
-                                            <div
-                                                key={item.id}
-                                                className="fav-item"
-                                                onClick={() => handleProductClick(item.id)}
-                                            >
-                                                <img src={item.image} alt={item.name} className="fav-thumb" />
-                                                <div className="fav-details">
-                                                    <p className="fav-name">
-                                                        {item.name.length > 20
-                                                            ? item.name.slice(0, 18) + "..."
-                                                            : item.name}
-                                                    </p>
-                                                    <span className="fav-price">{item.price} ج.م</span>
-                                                </div>
-                                                <Trash2
-                                                    className="fav-delete"
-                                                    size={20}
-                                                    strokeWidth={1.5}
-                                                    onClick={(e) => handleRemoveFavorite(item, e)}
-                                                />
-                                            </div>
-                                        ))
-                                    )}
-                                </div>
-                            )}
-                        </div>
 
                         {/* 🛒 العربة */}
                         <div
@@ -164,8 +121,8 @@ export default function Nav() {
                                 size={26}
                                 strokeWidth={1.5}
                                 color="#000"
-                                onClick={goToCart} // 👈 لما تضغطي يروح صفحة الكارت
-                                style={{ cursor: "pointer" }} // 👈 يوضح إن الأيقونة قابلة للضغط
+                                onClick={goToCart}
+                                style={{ cursor: "pointer" }}
                             />
 
                             {cartItems.length > 0 && <span className="fav-count">{cartItems.length}</span>}
@@ -199,6 +156,49 @@ export default function Nav() {
                                 </div>
                             )}
                         </div>
+                        {/* ❤️ المفضلة */}
+                        <div ref={favRef} className="fav-icon-wrapper">
+                            <Heart
+                                className="fav-icon"
+                                size={26}
+                                strokeWidth={1.5}
+                                color="#000"
+                                onClick={toggleFavDropdown}
+                            />
+                            {favorites.length > 0 && <span className="fav-count">{favorites.length}</span>}
+
+                            {showFavDropdown && (
+                                <div className="fav-dropdown">
+                                    {favorites.length === 0 ? (
+                                        <p className="empty-fav">لا توجد منتجات مفضلة بعد ❤️</p>
+                                    ) : (
+                                        favorites.map((item) => (
+                                            <div
+                                                key={item.id}
+                                                className="fav-item"
+                                                onClick={() => handleProductClick(item.id)}
+                                            >
+                                                <img src={item.image} alt={item.name} className="fav-thumb" />
+                                                <div className="fav-details">
+                                                    <p className="fav-name">
+                                                        {item.name.length > 23
+                                                            ? item.name.slice(0, 20) + "..."
+                                                            : item.name}
+                                                    </p>
+                                                    <span className="fav-price">{item.price} ج.م</span>
+                                                </div>
+                                                <Trash2
+                                                    className="fav-delete"
+                                                    size={20}
+                                                    strokeWidth={1.5}
+                                                    onClick={(e) => handleRemoveFavorite(item, e)}
+                                                />
+                                            </div>
+                                        ))
+                                    )}
+                                </div>
+                            )}
+                        </div>
 
                         {/* 📱 منيو الموبايل */}
                         <div className="menu-icon" onClick={() => setMenuOpen(!menuOpen)}>
@@ -211,7 +211,7 @@ export default function Nav() {
                     </div>
                 </div>
             </div>
-         
+
 
         </>
     );
