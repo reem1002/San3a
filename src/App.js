@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import LandingPage from "./pages/Landing-page";
 import { Routes, Route } from "react-router-dom";
 import Nav from "./components/Nav";
+import CircleNav from "./components/CircleNav";
 import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
 import ShopingPage from "./pages/shoping-page";
@@ -26,7 +27,9 @@ function App() {
 
   return (
     <div className="App fade-in">
+      <CircleNav />
       <Nav />
+
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<LandingPage />} />
