@@ -75,11 +75,11 @@ const ShopProducts = () => {
                         ))
                     ) : (
                         <div className="no-results-message">
-                            <img
-                                src="/imgs/empty.png"
-                                alt="No results"
-                                className="no-results-img"
-                            />
+                            {/* <img
+                                src="/imgs/monkey.gif"
+                                alt="Not Found Cat"
+                                className="cat-img"
+                            /> */}
                             <p>لا توجد نتائج مطابقة لبحثك</p>
                         </div>
                     )}

@@ -1,29 +1,31 @@
-
-@keyframes slideToMiddle {
-    from {
-        transform: translateX(100vw);
-        opacity: 0;
-    }
-    to {
-        transform: translateX(80%);
-        opacity: 1;
-    }
+.cards-display {
+  position: relative; /* علشان نقدر نوسّط العنصر جواه */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* أو حسب تصميمك */
+  gap: 20px;
+   min-height: 60dvh ;
 }
 
+/* الرسالة تاخد مساحة الكونتينر بالكامل */
 .no-results-message {
-    width: 100%;
-    text-align: center;
-    align-self: flex-end;
-    padding: 80px 0;
-    color: #555;
-    font-size: 1.2rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin: auto;
-    animation: slideToMiddle 1s ease-out forwards;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  text-align: center;
+  color: #555;
+  font-size: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none; /* علشان متعطلش أي كليك لو فيه عناصر تحتها */
 }
+
+
+
+
 
 .no-results-img {
     width: 300px;

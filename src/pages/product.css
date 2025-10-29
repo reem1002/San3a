@@ -246,6 +246,13 @@
 
 }
 
+@media (max-width: 1024) {
+  .details-section {
+  width: 70%;
+}
+  
+}
+
 @media (max-width: 992px) {
 
   .info-item .key {
@@ -340,4 +347,14 @@
   .needle-decor{
   display: none;
 }
+.details-section{
+        width: 100%;
+      }
+}
+
+
+@media (max-width: 360px) {
+.details-section{
+        width: 110%;
+      }
 }
