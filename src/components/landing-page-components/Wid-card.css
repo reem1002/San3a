@@ -112,10 +112,10 @@
   margin-right: 15px;
 }
 
-.card:hover {
+/* .card:hover {
   transform: scale(1.02);
   transition: transform 0.3s ease;
-}
+} */
 
 .product-seller:hover {
   text-decoration: underline;
@@ -211,6 +211,7 @@
 .maininfo{
    text-align: center;
 }
+ 
 
 }
 

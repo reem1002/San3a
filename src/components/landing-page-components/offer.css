@@ -4,16 +4,18 @@
   --button-background: #c0e399;
   --lable-background: #f8afb5;
 }
+
 .section-container {
   width: 85%;
   margin: 0 auto;
 }
+
 .offers-section {
   display: flex;
   justify-content: space-around !important;
   align-items: center;
-  padding: 0 !important;
   margin: 80px 0 !important;
+  gap:60px;
 }
 
 .offerline {
@@ -37,52 +39,8 @@
   color: var(--hero-text-color);
 }
 
-.offers-section .maindata {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.offers-section .maininfo {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  margin: 10px 0;
-}
-
-.offers-section .card {
-  width: 275px;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-color: var(--hero-background);
-  border-radius: 10px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-  padding: 20px;
-}
-
-.offers-section .product-title {
-  font-size: 16px;
-}
-.offers-section .buy-button {
-  padding: 10px 20px;
-  cursor: pointer;
-  font-size: 14px;
-  margin-top: 10px;
-}
-.offers-section .card:hover {
-  transform: scale(1);
-  transition: transform 0.3s ease;
-}
-
 .offers-section .mySwiper {
-  height: auto;
   width: 100%;
-  /* margin-left: 20px; */
 }
 
 .section-container-offers .sectionfooter {
@@ -90,47 +48,63 @@
   justify-content: right;
 }
 
-@media (max-width: 1368px) {
-  .offerline {
-    width: 260px;
-    height: 260px;
-  }
-
-  .line {
-    font-size: 32px;
-  }
-
-  .offers-section {
-    justify-content: center;
-    gap: 20px;
-  }
-   .offers-section .mySwiper {
-    width: 100%;
-    overflow-x: auto;
-    padding-bottom: 10px;
-  }
-
-  .offers-section .swiper-wrapper {
-    display: flex;
-    gap: 15px;
-  }
-
-  .offers-section .swiper-slide {
-    width: auto !important;
-    flex-shrink: 0;
-  }
-
-  .offers-section .card {
-    width: 275px; 
-  }
-
+/* 🧭 منع ظهور نص كارت على الجنب */
+  .offers-section  .swiper {
+  overflow: hidden !important;
 }
 
-/* 🎯 تحسين العرض في الشاشات الصغيرة */
+  .offers-section  .swiper-wrapper {
+  display: flex;
+  align-items: stretch;
+}
+
+  .offers-section  .swiper-slide {
+  flex: 0 0 auto;
+  width: auto !important;
+  display: flex;
+  justify-content: center;
+}
+
+  .offers-section .card {
+  width: 275px;
+  flex-direction: column !important;
+  background-color: var(--hero-background);
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  transition: transform 0.3s ease;
+}
+
+ .offers-section .card .maindata{
+  flex-direction: column !important;
+}
+
+.offers-section .card .maininfo {
+        text-align: center;
+    }
+
+/* .card:hover {
+  transform: scale(1.001);
+} */
+
+@media (max-width:1024px) {
+  .offers-section {
+  gap:20px;
+}
+
+.offerline{
+  width: 280px;
+  height: 280px;
+}
+  .line{
+    font-size: 30px;
+  }
+}
+
+/* 🎯 موبايل */
 @media (max-width: 768px) {
   .offers-section {
     flex-direction: column;
-   
     margin: 40px 0 !important;
   }
 
@@ -150,40 +124,17 @@
     width: 100%;
   }
 
-  /* 📱 خلى السلايدر كأنه سكروول أفقي */
   .offers-section .mySwiper {
-    width: 90%;
-    overflow-x: auto;
-    padding-bottom: 10px;
+    width: 100%;
+    overflow: hidden; 
   }
 
-  .offers-section .swiper-wrapper {
-    display: flex;
-    gap: 15px;
-  }
-
-  .offers-section .swiper-slide {
-    width: auto !important; /* خلى العرض ياخد حجم الكارد الأصلي */
-    flex-shrink: 0;
-  }
-
-  .offers-section .card {
-    width: 275px; /* نفس الحجم الأصلي */
+    .offers-section  .swiper-slide {
+    width: 100% !important; 
   }
 
   .section-container-offers .sectionfooter {
     justify-content: end;
     margin-top: 20px !important;
-  }
-}
-
-/* 📱 الشاشات الصغيرة جدًا */
-@media (max-width: 480px) {
-  .offers-section .card {
-    width: 275px;
-  }
-
-  .line {
-    font-size: 20px;
   }
 }

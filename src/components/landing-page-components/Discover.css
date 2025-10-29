@@ -96,6 +96,13 @@
 }
 @media (max-width: 1280px){
 
+  .swip-container-img:hover img {
+  filter: brightness(none);
+  
+  transform: scale(none);
+
+}
+
   .section-title{
     font-weight: 600 !important;
   }

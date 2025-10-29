@@ -164,7 +164,7 @@ body {
 /* القائمة المنسدلة */
 .fav-dropdown {
   position: absolute;
-  top: 35px;
+  top: 55px;
   left: 0;
   width: 250px;
   background: #fff;
@@ -174,7 +174,19 @@ body {
   padding: 10px;
   z-index: 999;
 }
+.cart-dropdown{
+position: absolute;
+  top: 55px;
+  left: 0;
+  width: 220px;
+  background: #fff;
+  border: 1px solid #eee;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  padding: 10px;
+  z-index: 999;
 
+}
 .fav-item {
   display: flex;
   align-items: center;
@@ -297,9 +309,7 @@ body {
     flex-direction: column;
     gap: 10px;
   }
-  .nav_user{
-    gap: 15px;
-  }
+  
   .Navs_links.open .nav-link {
     padding: 8px;
   }
@@ -311,7 +321,9 @@ body {
     gap: 0px;
     align-items: center;
   }
-
+ .nav_user{
+  gap: 15px;
+ }
 
   .logo {
     height: 42px;
@@ -321,6 +333,7 @@ body {
 }
 .fav-dropdown{
     left: -10px;
+    top: 55px;
     width: 250px;
   }
   .fav-thumb{

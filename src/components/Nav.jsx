@@ -128,7 +128,7 @@ export default function Nav() {
                             {cartItems.length > 0 && <span className="fav-count">{cartItems.length}</span>}
 
                             {showCartDropdown && (
-                                <div className="fav-dropdown">
+                                <div className="cart-dropdown">
                                     {cartItems.length === 0 ? (
                                         <p className="empty-fav">عربتك فارغة 🛒</p>
                                     ) : (

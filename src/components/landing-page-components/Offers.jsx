@@ -9,7 +9,6 @@ import { useNavigate } from "react-router-dom";
 export default function Offers() {
     const allProducts = useSelector((state) => state.products.allProducts);
 
-
     const discountedProducts = allProducts.filter(
         (product) => product.discount && product.discount > 0
     );
@@ -19,17 +18,12 @@ export default function Offers() {
     const handleCardClick = (id) => {
         if (!id) return;
         navigate(`/product/${id}`);
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth",
-        });
+        window.scrollTo({ top: 0, behavior: "smooth" });
     };
+
     const handleToShop = () => {
         navigate("/shop");
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth",
-        });
+        window.scrollTo({ top: 0, behavior: "smooth" });
     };
 
     return (
@@ -43,17 +37,16 @@ export default function Offers() {
 
                 <Swiper
                     modules={[Navigation]}
-                    spaceBetween={0}
-                    slidesPerView={1.3}
+                    spaceBetween={16}
+                    slidesPerView={3}
                     navigation
                     className="mySwiper"
                     breakpoints={{
                         1280: { slidesPerView: 3 },
-                        1024: { slidesPerView: 1.8 },
-                        768: { slidesPerView: 1.5 },
-                        480: { slidesPerView: 1.2 },
+                        1024: { slidesPerView: 2 },
+                        768: { slidesPerView: 1 },
+                        480: { slidesPerView: 1 },
                     }}
-
                 >
                     {discountedProducts.map((product, index) => (
                         <SwiperSlide key={index}>
@@ -68,7 +61,7 @@ export default function Offers() {
                                 price={product.price}
                                 rating={product.rating}
                                 discount={product.discount}
-                                stock={product.stock} // ✅ أضف السطر ده
+                                stock={product.stock}
                                 onOpenProduct={() => handleCardClick(product.id)}
                             />
                         </SwiperSlide>

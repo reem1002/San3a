@@ -246,9 +246,20 @@
 
 }
 
-@media (max-width: 1024) {
+@media (max-width: 1024px) {
   .details-section {
   width: 70%;
+}
+ .macas-decor{
+  display: none;
+}
+
+.needle-decor{
+  max-width: 200px;
+  position: absolute;
+  bottom: -100px;
+  right:0px;
+  z-index: 1;
 }
   
 }
@@ -259,7 +270,7 @@
     font-weight: 600;
   }
 
-  .macas-decor{
+ .macas-decor{
   display: none;
 }
 
