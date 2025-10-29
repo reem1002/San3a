@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import './SupportAssistant.css';
 
 export default function SupportAssistant() {
@@ -7,6 +8,8 @@ export default function SupportAssistant() {
     const [showMessage, setShowMessage] = useState(false);
     const [loading, setLoading] = useState(true);
     const navigate = useNavigate();
+
+    const whatsappNumber = useSelector((state) => state.san3a.whatsappNumber);
 
     useEffect(() => {
         const images = document.querySelectorAll("img");
@@ -41,7 +44,7 @@ export default function SupportAssistant() {
 
     const handleWhatsApp = () => {
         window.open(
-            "https://wa.me/201022391604?text=مرحبًا،%20أحتاج%20مساعدة%20بخصوص%20منصة%20صنعة.",
+            `https://wa.me/${whatsappNumber}?text=${encodeURIComponent("مرحبًا، أحتاج مساعدة بخصوص منصة صنعة.")}`,
             "_blank"
         );
         setShowModal(false);
@@ -77,14 +80,13 @@ export default function SupportAssistant() {
                 <div className="assistant-overlay" onClick={() => setShowModal(false)}>
                     <div className="assistant-modal" onClick={(e) => e.stopPropagation()}>
                         <h4>كيف تحب نساعدك؟</h4>
-                        <p>اختر وسيلة الدعم المناسبة ليك：
-                        </p>
+                        <p className='arabic-text'>اختر وسيلة الدعم المناسبة ليك:</p>
                         <div className="assistant-options">
                             <button className="support-btn" onClick={handleWhatsApp}>
-                                💬 التحدث عبر واتساب
+                                التحدث عبر واتساب
                             </button>
                             <button className="support-btn" onClick={handleGoFAQ}>
-                                ❓ زيارة صفحة الأسئلة الشائعة
+                                زيارة صفحة الأسئلة الشائعة
                             </button>
                             <button className="cancel-btn" onClick={() => setShowModal(false)}>
                                 إلغاء

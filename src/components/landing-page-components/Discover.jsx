@@ -54,7 +54,7 @@ const DiscoverSection = () => {
 
 
     return (
-        <div className="bg-[#fefbf5] text-right py-8 px-4 section-container container">
+        <div className="bg-[#fefbf5] text-right py-8 px-4 section-container container des-section-container">
             <div className="flex items-center justify-between mb-6 upperbox">
                 <h2 className="section-title">اكتشف</h2>
 

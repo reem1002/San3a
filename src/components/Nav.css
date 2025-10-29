@@ -29,8 +29,10 @@ body {
   align-items: center;
 }
 
-.logo {
-  height: 50px;
+.nav-bar .logo {
+  height: 60px;
+  margin: auto !important;
+  
 }
 
 .Navs_links {

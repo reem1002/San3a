@@ -1,14 +1,18 @@
 import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 import './gosell.css';
 
 export default function GoSell() {
     const [showModal, setShowModal] = useState(false);
 
+    const whatsappNumber = useSelector((state) => state.san3a.whatsappNumber);
+
     const handleConfirm = () => {
-        window.open(
-            "https://wa.me/201022391604?text=مرحبًا،%20أرغب%20في%20أن%20أكون%20أحد%20البائعين%20في%20منصة%20صنعة",
-            "_blank"
-        );
+        const message = "مرحبًا، أرغب في أن أكون أحد البائعين في منصة صنعة";
+        const encodedMessage = encodeURIComponent(message);
+        const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+
+        window.open(whatsappUrl, "_blank");
         setShowModal(false);
     };
 
@@ -34,7 +38,7 @@ export default function GoSell() {
                 <div className="modal-overlay" onClick={() => setShowModal(false)}>
                     <div className="modal-box" onClick={e => e.stopPropagation()}>
                         <h3>هل ترغب في المتابعة إلى واتساب؟</h3>
-                        <p>سيتم فتح تطبيق واتساب تلقائيًا برسالة جاهزة، فقط اضغط إرسال</p>
+                        <p className="arabic-text">سيتم فتح تطبيق واتساب تلقائيًا برسالة جاهزة، فقط اضغط إرسال.</p>
                         <div className="modal-buttons">
                             <button className="confirm-btn" onClick={handleConfirm}>
                                 نعم، تابع

@@ -12,10 +12,6 @@ export default function CartPage() {
     const cartItems = useSelector((state) => state.cart.cartItems);
     const [showForm, setShowForm] = useState(false);
 
-    // ✅ كل مرة تدخل الصفحة تبدأ من فوق
-    useEffect(() => {
-        window.scrollTo(0, 0);
-    }, []);
 
     const handleQuantityChange = (id, value) => {
         const qty = parseInt(value);

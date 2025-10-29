@@ -10,21 +10,22 @@ import {
     REGISTER,
 } from "redux-persist";
 import storage from "redux-persist/lib/storage";
-
+import san3aReducer from "./san3aSlice";
 import productsReducer from "./productsSlice";
 import favoritesReducer from "./favoritesSlice";
-import cartReducer from "./cartSlice"; // ✅ أضفنا الكارت هنا
+import cartReducer from "./cartSlice";
 
 const rootReducer = combineReducers({
     products: productsReducer,
     favorites: favoritesReducer,
-    cart: cartReducer, // ✅ أضفنا الكارت
+    cart: cartReducer,
+    san3a: san3aReducer,
 });
 
 const persistConfig = {
     key: "root",
     storage,
-    whitelist: ["favorites", "products", "cart"], // ✅ نحافظ على cart كمان
+    whitelist: ["favorites", "products", "cart"],
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

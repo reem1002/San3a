@@ -19,6 +19,15 @@
   color: var(--hero-text-color);
   font-size: 16px;
 }
+.new-sec-con .upperbox {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+  margin-top: 50px;
+  direction: rtl;
+  color: var(--hero-text-color);
+}
 
 .sectionfooter:hover {
   cursor: pointer;

@@ -49,7 +49,7 @@ export default function AppLoader() {
                 <span className="cursor">|</span>
             </motion.h2>
 
-            {/* ✅ نقاط التحميل الخضراء */}
+
             <div className="loading-dots">
                 <span></span>
                 <span></span>

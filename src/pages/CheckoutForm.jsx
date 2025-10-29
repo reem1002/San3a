@@ -1,7 +1,10 @@
 import React, { useState } from "react";
+import { useSelector } from "react-redux"; 
 import "./checkoutForm.css";
 
 export default function CheckoutForm({ cartItems, totalWithShipping, shippingCost, onClose }) {
+    const whatsappNumber = useSelector((state) => state.san3a.whatsappNumber); 
+
     const [formData, setFormData] = useState({
         name: "",
         phone: "",
@@ -13,8 +16,8 @@ export default function CheckoutForm({ cartItems, totalWithShipping, shippingCos
     });
 
     const [errors, setErrors] = useState({});
-    const [isSubmitting, setIsSubmitting] = useState(false); // ✅ لمنع الضغط المكرر
-    const [hasSubmitted, setHasSubmitted] = useState(false); // ✅ لمنع الإرسال نهائيًا بعد نجاحه
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [hasSubmitted, setHasSubmitted] = useState(false);
 
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -77,8 +80,6 @@ export default function CheckoutForm({ cartItems, totalWithShipping, shippingCos
         message += `*طريقة الدفع:* ${formData.payment}\n`;
 
         const encodedMessage = encodeURIComponent(message);
-        const whatsappNumber = "201022391604";
-
 
         setTimeout(() => {
             window.open(`https://wa.me/${whatsappNumber}?text=${encodedMessage}`, "_blank");
@@ -101,11 +102,10 @@ export default function CheckoutForm({ cartItems, totalWithShipping, shippingCos
         <div className="checkout-overlay">
             <div className="checkout-popup">
                 <button className="close-btn" onClick={onClose}>✖</button>
-                <h3>بيانات التوصيل</h3>
+                <h4>بيانات التوصيل</h4>
                 <hr className="divider" />
 
                 <form onSubmit={handleSubmit}>
-                    {/* البيانات الشخصية */}
                     <h4 className="section-title">البيانات الشخصية</h4>
                     <div className="input-row">
                         <div className="field-group">
@@ -131,7 +131,6 @@ export default function CheckoutForm({ cartItems, totalWithShipping, shippingCos
                         </div>
                     </div>
 
-                    {/* العنوان */}
                     <h4 className="section-title">العنوان</h4>
                     <div className="input-row">
                         <div className="field-group">
@@ -168,18 +167,6 @@ export default function CheckoutForm({ cartItems, totalWithShipping, shippingCos
                         </div>
                     </div>
 
-                    {/* <div className="input-row">
-                        <div className="field-group full-width">
-                            <textarea
-                                name="notes"
-                                placeholder="ملاحظات إضافية (اختياري)"
-                                value={formData.notes}
-                                onChange={handleChange}
-                            ></textarea>
-                        </div>
-                    </div> */}
-
-                    {/* طريقة الدفع */}
                     <h4 className="section-title">طريقة الدفع</h4>
                     <div className="field-group full-width">
                         <select name="payment" value={formData.payment} onChange={handleChange}>

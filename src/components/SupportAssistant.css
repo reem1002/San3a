@@ -1,10 +1,10 @@
 :root {
   --main_background: #fefbf3;
   --button-hover: #a8d88c;
-  --button-background: #c0e399; /* ضفتها لأنها مستخدمة في الأزرار */
+  --button-background: #c0e399; 
 }
 
-/* الزر العائم للمساعد */
+
 .assistant-container {
   position: fixed;
   bottom: 25px;
@@ -49,7 +49,6 @@
   transform: scale(1.1);
 }
 
-/* الرسالة الصغيرة */
 .assistant-message {
   background-color: white;
   color: var(--hero-text-color);
@@ -63,21 +62,19 @@
   animation: fadeInOut 3s ease;
 }
 
-/* حركة الصورة */
+
 @keyframes floaty {
   0% { transform: translateY(0); }
   50% { transform: translateY(-5px); }
   100% { transform: translateY(0); }
 }
 
-/* حركة الرسالة */
 @keyframes fadeInOut {
   0% { opacity: 0; transform: translateY(10px); }
   10%, 80% { opacity: 1; transform: translateY(0); }
   100% { opacity: 0; transform: translateY(-10px); }
 }
 
-/* الخلفية الشفافة للمودال */
 .assistant-overlay {
   position: fixed;
   inset: 0;
@@ -88,7 +85,7 @@
   z-index: 1000;
 }
 
-/* تصميم المودال */
+
 .assistant-modal {
   background: #fff;
   padding: 25px 35px;
@@ -100,7 +97,7 @@
   animation: modalPop 0.3s ease-out;
 }
 
-/* أنيميشن فتح المودال */
+
 @keyframes modalPop {
   0% {
     transform: scale(0.85);
@@ -114,7 +111,7 @@
 
 .assistant-modal h4 {
   color: var(--hero-text-color);
-  margin-bottom: 10px;
+  margin-bottom: 15px;
   font-size: 20px;
   font-weight:600 ;
 }
@@ -125,7 +122,6 @@
   margin-bottom: 18px;
 }
 
-/* الأزرار الجديدة */
 .assistant-options {
   display: flex;
   flex-direction: column;
@@ -136,7 +132,7 @@
   background-color: var(--button-background);
   color: #000;
   border: none;
-  padding: 10px 15px;
+  padding: 10px 20px;
   border-radius: 10px;
   font-size: 15px;
   cursor: pointer;
@@ -149,7 +145,7 @@
   transform: scale(1.03);
 }
 
-/* زر FAQ بلون مختلف */
+
 .support-btn:nth-child(2) {
   background-color: #f8afb5;
 }
@@ -158,7 +154,7 @@
   background-color: #f7c4c9;
 }
 
-/* زر الإلغاء */
+
 .cancel-btn {
   background-color: #ddd;
   color: #333;
@@ -174,7 +170,7 @@
   background-color: #bbb;
 }
 
-/* اللودر */
+
 .global-loader {
   position: fixed;
   top: 0;
@@ -203,7 +199,7 @@
   100% { transform: rotate(360deg); }
 }
 
-/* استجابة الموبايل */
+
 @media (max-width: 768px) {
   .assistant-img {
     width: 90px;

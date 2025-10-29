@@ -9,6 +9,18 @@
   text-align: center;
 }
 
+.seller-container .upperbox {
+  /* display: flex; */
+  justify-content: space-between;
+  padding: 0 20px;
+  align-items: center;
+  margin-bottom: 45px;
+  margin-top: 0px;
+  direction: 25px;
+  color: var(--hero-text-color);
+  text-align: right;
+  /* width: 100%; */
+}
 .section-title {
   font-size: 28px;
   color: var(--hero-text-color);
@@ -52,9 +64,11 @@
 @media (max-width: 768px) {
   .section-title {
     font-size: 22px;
+    
   }
   .seller-container .upperbox{
     justify-content: center;
+    text-align: center;
   }
   .seller-container {
     margin-top: 50px;

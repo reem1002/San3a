@@ -90,7 +90,7 @@ export default function Nav() {
         <div className="nav-bar shadow-sm">
             <div className="nav container">
                 <Link to="/">
-                    <img src="/imgs/logo.png" alt="Logo" className="logo" />
+                    <img src="/imgs/logo1.png" alt="Logo" className="logo" />
                 </Link>
 
                 <div className={`Navs_links ${menuOpen ? "open" : ""}`}>
