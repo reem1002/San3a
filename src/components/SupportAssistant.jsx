@@ -11,6 +11,7 @@ export default function SupportAssistant() {
 
     const whatsappNumber = useSelector((state) => state.san3a.whatsappNumber);
 
+    // loader for images
     useEffect(() => {
         const images = document.querySelectorAll("img");
         let loadedCount = 0;
@@ -34,6 +35,7 @@ export default function SupportAssistant() {
         if (loadedCount === totalImages) setLoading(false);
     }, []);
 
+    // message every 30s
     useEffect(() => {
         const interval = setInterval(() => {
             setShowMessage(true);
@@ -63,38 +65,39 @@ export default function SupportAssistant() {
                 </div>
             )}
 
-            <div className="assistant-container" onClick={() => setShowModal(true)}>
-                <img
-                    src="/imgs/helper.png"
-                    alt="assistant"
-                    className="assistant-img"
-                />
-                {showMessage && (
-                    <div className="assistant-message">
-                        محتاج مساعدة؟
+            {/* assistant fixed at body level */}
+            <div id="assistant-root">
+                <div className="assistant-container" onClick={() => setShowModal(true)}>
+                    <img
+                        src="/imgs/helper.png"
+                        alt="assistant"
+                        className="assistant-img"
+                    />
+                    {showMessage && (
+                        <div className="assistant-message">محتاج مساعدة؟</div>
+                    )}
+                </div>
+
+                {showModal && (
+                    <div className="assistant-overlay" onClick={() => setShowModal(false)}>
+                        <div className="assistant-modal" onClick={(e) => e.stopPropagation()}>
+                            <h4>كيف تحب نساعدك؟</h4>
+                            <p className="arabic-text">اختر وسيلة الدعم المناسبة ليك:</p>
+                            <div className="assistant-options">
+                                <button className="support-btn" onClick={handleWhatsApp}>
+                                    التحدث عبر واتساب
+                                </button>
+                                <button className="support-btn" onClick={handleGoFAQ}>
+                                    زيارة صفحة الأسئلة الشائعة
+                                </button>
+                                <button className="cancel-btn" onClick={() => setShowModal(false)}>
+                                    إلغاء
+                                </button>
+                            </div>
+                        </div>
                     </div>
                 )}
             </div>
-
-            {showModal && (
-                <div className="assistant-overlay" onClick={() => setShowModal(false)}>
-                    <div className="assistant-modal" onClick={(e) => e.stopPropagation()}>
-                        <h4>كيف تحب نساعدك؟</h4>
-                        <p className='arabic-text'>اختر وسيلة الدعم المناسبة ليك:</p>
-                        <div className="assistant-options">
-                            <button className="support-btn" onClick={handleWhatsApp}>
-                                التحدث عبر واتساب
-                            </button>
-                            <button className="support-btn" onClick={handleGoFAQ}>
-                                زيارة صفحة الأسئلة الشائعة
-                            </button>
-                            <button className="cancel-btn" onClick={() => setShowModal(false)}>
-                                إلغاء
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            )}
         </>
     );
 }

@@ -26,8 +26,6 @@ function App() {
 
   return (
     <div className="App fade-in">
-
-      <SupportAssistant />
       <Nav />
       <ScrollToTop />
       <Routes>
@@ -40,6 +38,7 @@ function App() {
         <Route path="/faq" element={<Faq />} />
       </Routes>
       <Footer />
+      <SupportAssistant />
     </div>
   );
 }
